@@ -1,0 +1,78 @@
+﻿
+
+@model BookingApp.Models.Domestic
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger  my-font-13" })
+    <div class="row">
+        <div class="col-12">
+            @Html.LabelFor(e => e.fullName, htmlAttributes: new { @class = "control-label label-color my-font-13" })
+            <div class="input-group">
+                @Html.EditorFor(e => e.fullName, new { htmlAttributes = new { @class = "form-control  my-font-13", @placeholder = "Lastname, Firstname Middlename" } })
+            </div>
+            @Html.ValidationMessageFor(e => e.fullName, "", new { @class = "text-danger  my-font-13" })
+        </div>
+        <div class="col-12">
+            @Html.LabelFor(e => e.email, htmlAttributes: new { @class = "control-label label-color my-font-13" })
+            <div class="input-group">
+                @Html.EditorFor(e => e.email, new { htmlAttributes = new { @class = "form-control my-font-13", @placeholder = "Enter your email" } })
+            </div>
+            @Html.ValidationMessageFor(e => e.email, "", new { @class = "text-danger my-font-13" })
+        </div>
+        <div class="col-12">
+            @Html.LabelFor(e => e.contact, htmlAttributes: new { @class = "control-label label-color my-font-13" })
+            <div class="input-group">
+                @Html.EditorFor(e => e.contact, new { htmlAttributes = new { @class = "form-control my-font-13", @placeholder = "Enter contact number" } })
+            </div>
+            @Html.ValidationMessageFor(e => e.contact, "", new { @class = "text-danger my-font-13" })
+        </div>
+        <div class="col-6">
+            @Html.LabelFor(e => e.adult, htmlAttributes: new { @class = "control-label label-color my-font-13" })
+            <div class="input-group">
+                @Html.EditorFor(e => e.adult, new { htmlAttributes = new { @class = "form-control my-font-13", @id = "adult0", @placeholder = "Enter adult count(s)" } })
+                <div class="input-group-append">
+                    <div class="input-group-text my-icon my-font-14"><i class="fas fa-male"></i></div>
+                </div>
+            </div>
+            @Html.ValidationMessageFor(e => e.adult, "", new { @class = "text-danger my-font-13 adult-error0" })
+        </div>
+        <div class="col-6">
+            @Html.LabelFor(e => e.child, htmlAttributes: new { @class = "control-label label-color my-font-13" })
+            <div class="input-group">
+                @Html.EditorFor(e => e.child, new { htmlAttributes = new { @class = "form-control my-font-13", @id = "child0", @placeholder = "Enter adult count(s)" } })
+                <div class="input-group-append">
+                    <div class="input-group-text my-icon my-font-14"><i class="fas fa-child"></i></div>
+                </div>
+            </div>
+            @Html.ValidationMessageFor(e => e.child, "", new { @class = "text-danger my-font-13 child-error0" })
+        </div>
+        <div class="col-12">
+            @Html.LabelFor(e => e.ReserveDateFrom, htmlAttributes: new { @class = "control-label label-color  my-font-13" })
+            <div class="input-group date" id="RreserveDateFrom0" data-target-input="nearest">
+                @Html.EditorFor(xx => xx.ReserveDateFrom, new { htmlAttributes = new { @class = "form-control datetimepicker-input  my-font-13", @data_target = "#RreserveDateFrom0", @id = "RreserveDate0", @placeholder = "Select departure date" } })
+                <div class="input-group-append" data-target="#RreserveDateFrom0" data-toggle="datetimepicker">
+                    <div class="input-group-text my-btn my-font-13"><i class="fas fa-calendar-alt"></i></div>
+                </div>
+            </div>
+            @Html.ValidationMessageFor(e => e.ReserveDateFrom, "", new { @class = "text-danger  my-font-13" })
+        </div>
+        <div class="col-12">
+            @Html.LabelFor(e => e.fullAddress, htmlAttributes: new { @class = "control-label label-color  my-font-13" })
+            <div class="input-group">
+                @Html.EditorFor(e => e.fullAddress, new { htmlAttributes = new { @class = "form-control  my-font-13", @placeholder = "Enter Full Address", @rows = "6" } })
+            </div>
+            @Html.ValidationMessageFor(e => e.fullAddress, "", new { @class = "text-danger  my-font-13" })
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-12">
+            <div class="input-group">
+                <button class="btn my-btn my-font-13 text-capitalize">inquire now</button>
+            </div>
+        </div>
+    </div>
+}
+
+

@@ -1,0 +1,26 @@
+﻿@model BookingApp.Areas.AdminPanel.Models.Bedtype
+
+@using (Html.BeginForm("AddBedRooms", "ControlPanel", FormMethod.Post, new { @id = "BRFormData"}))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="row p-2">
+        <div class="col-12">
+            <div class="form-group">
+                <div class="input-group">
+                    @Html.EditorFor(model => model.bedtype, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Bedroom Type" } })
+                </div>
+                @Html.ValidationMessageFor(model => model.bedtype, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-group">
+                <button class="btn btn-success pull-right" id="btnSaveBRtype">Save Bedroom Type</button>
+                <button class="btn my-font-14 font-red pull-right" type="button" id="btnSaveBRtypeLoading" disabled>
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Processing...
+                </button>
+            </div>
+        </div>
+    </div> 
+}

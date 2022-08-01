@@ -1,0 +1,419 @@
+.tim-row{
+    margin-bottom: 20px;
+}
+
+.tim-white-buttons {
+    background-color: #777777;
+}
+.typography-line{
+    padding-left: 25%;
+    margin-bottom: 35px;
+    position: relative;
+    display: block;
+    width: 100%;
+}
+.typography-line span{
+    bottom: 10px;
+    color: #c0c1c2;
+    display: block;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 13px;
+    left: 0;
+    position: absolute;
+    width: 260px;
+    text-transform: none;
+}
+.tim-row{
+    padding-top: 60px;
+}
+.tim-row h3{
+    margin-top: 0;
+}
+
+.tim-typo{
+    padding-left: 25%;
+    margin-bottom: 40px;
+    position: relative;
+    width: 100%;
+}
+.tim-typo .tim-note{
+    bottom: 5px;
+    color: #c0c1c2;
+    display: block;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15px;
+    left: 0;
+    margin-left: 20px;
+    position: absolute;
+    width: 260px;
+}
+
+.my-placeholder::placeholder {
+    color: black;
+    opacity: 0.7;
+}
+
+.my-placeholder:-ms-input-placeholder {
+    color: black;
+    opacity: 0.7;
+}
+
+.my-placeholder::-ms-input-placeholder {
+    color: black;
+    opacity: 0.7;
+}
+
+.shadow-effect {
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+}
+
+.my-green-link {
+    color: #336f10;
+    cursor: pointer;
+}
+.my-green-link:hover {
+    color: #ff6a00;
+}
+
+.my-red-link {
+    color: #ef1818;
+    cursor: pointer;
+}
+
+    .my-red-link:hover {
+        color: #ff6a00;
+    }
+
+/* ////////////////////////// multiple upload image /////////////////////////// */
+input[type="file"] {
+    display: block;
+}
+
+.imageThumb {
+    max-height: 75px;
+    border: 2px solid;
+    padding: 1px;
+    cursor: pointer;
+}
+
+.remove {
+    cursor: pointer;
+}
+.remove:hover {
+    opacity: 0.7;
+}
+
+#slidePreview {
+    display: none;
+}
+
+#btnSaveBRtypeLoading, #btnSaveCatLoading, #btnPackageLoading {
+    display: none;
+}
+
+fieldset.scheduler-border {
+    border: 1px groove lightgrey !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow: 0px 0px 0px 0px #000;
+    box-shadow: 0px 0px 0px 0px #000;
+    border-radius: 5px;
+}
+
+legend.scheduler-border {
+    font-size: 1.2em !important;
+    text-align: left !important;
+    width: auto;
+    padding: 0 10px;
+    color: lightgray;
+    border-bottom: none;
+}
+
+.containers {
+    display: inline-block;
+    position: relative;
+    padding-left: 25px;
+    font-size: 15px;
+    padding-right: 30px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: black;
+    opacity: 0.7;
+}
+
+    /* Hide the browser's default checkbox */
+    .containers input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    border: solid 1px green;
+    border-radius: 2px;
+}
+
+/* On mouse-over, add a grey background color */
+.containers:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.containers input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.containers .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid green;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+#packagePartial {
+    width: 100%;
+}
+
+
+/* Custom select menu */
+
+#_category {
+    cursor: pointer;
+    max-height: calc(1.2em + 24px);
+    height: calc(1.2em + 24px);
+}
+
+#_bedroom {
+    cursor: pointer;
+    padding: 10px;
+    margin: 0;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+    #_bedroom option, #_category option {
+        /*padding: 50px !important;*/
+        cursor: pointer !important;
+        padding: 20px !important;
+      
+    }
+
+select {
+    padding: 3px;
+    margin: 0;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    background: #f8f8f8;
+    color: #888;
+    border: none;
+    outline: none;
+    display: inline-block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+/* Targetting Webkit browsers only. FF will show the dropdown arrow with so much padding. */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    select {
+        padding-right: 18px
+    }
+}
+
+.catOpt {
+    padding: 15px 0 7.5px 0!important;
+}
+
+/* properties from guest site */
+
+#visareq_div0, #holylandDivOne, #holylandDivTwo, #holylandDivThree, #holylandDivFour, #holylandDivFive, #holylandDivSix, #holylandDivSeven, #holylandDivEight, #holylandDivNine, #contactCairo1, #contactCairo2,
+#contactCairo3, #contactCairo4, #contactCairo5, #contactCairo6, #contactCairo7, #contactCairo8, #contactCairo9, #formBody {
+    display: none;
+}
+
+#optional_div0 {
+    display: none;
+}
+
+#itinerary_div0 {
+    display: none;
+}
+
+#flightDetails_div0 {
+    display: none;
+}
+
+#exclusion_div0 {
+    display: none;
+}
+
+#inclusion_div0 {
+     display: none;
+}
+
+#hotels_div0 {
+    display: none;
+}
+
+.user_links {
+    cursor: pointer!important;
+}
+
+.hover-animate-img-2:hover {
+    transform: scale(2.5);
+    z-index: 10000 !important;
+    position: relative;
+    margin-left: 150px!important;
+}
+
+.hover-animate-img {
+    height: 150px;
+    width: 250px;
+    line-height: 200px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.max-w {
+    max-width: 340px !important;
+    min-height: 300px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-radius: 250px 0 250px 0!important;
+    z-index: 1!important;  
+    box-shadow: 12px 0 15px -4px rgba(31, 73, 125, 0.8), 0px 0 0px -4px rgba(31, 73, 125, 0.8);
+    background-color: #D1EDE1;
+}
+
+.max-wa {
+    width: 330px !important;
+    height: 295px !important;
+    margin-left: 45px !important;
+    margin-top: -300px;
+    z-index: 0 !important;
+    border-radius: 0 250px 0 250px !important;
+    position: absolute;
+    -ms-transform: rotate(120deg); /* IE 9 */
+    -webkit-transform: rotate(120deg); /* Safari prior 9.0 */
+    transform: rotate(120deg); /* Standard syntax */
+    background-color: #7BC5AE;
+    box-shadow: 5px 0 15px -4px rgba(31, 73, 125, 0.8), 0px 0 0px -4px rgba(31, 73, 125, 0.8);
+}
+
+.max-waa {
+    width: 330px !important;
+    height: 285px !important;
+    margin-left: 78px !important;
+    border-radius: 250px 0 250px 0 !important;
+    z-index: 0 !important;
+    position: absolute;
+    -ms-transform: rotate(120deg); /* IE 9 */
+    -webkit-transform: rotate(120deg); /* Safari prior 9.0 */
+    transform: rotate(50deg); /* Standard syntax */
+    background-color: #028C6A;
+    box-shadow: 12px 0 15px -4px rgba(31, 73, 125, 0.8), 0px 0 0px -4px rgba(31, 73, 125, 0.8);
+}
+
+.row-transform {
+    margin: 60px 0 0 10px;
+    -ms-transform: rotate(-20deg); /* IE 9 */
+    -webkit-transform: rotate(-20deg); /* Safari prior 9.0 */
+    transform: rotate(-20deg); /* Standard syntax */
+    z-index: 5 !important;
+    position: relative;
+}
+
+.u-btn {
+    border-radius: 100px 0 100px 0 !important;
+}
+
+    .design-don {
+        width: 340px !important;
+        height: 300px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        position: relative;
+    }
+
+.img-login {
+    position: relative;
+    background-color: white;
+    border-radius: 100%;
+    padding: 30px 25px 30px 25px;
+    margin-bottom: -20px;
+    margin-top: 0px;
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+}
+
+.img-login img {
+    height: 100px; 
+    width: 120px;
+}
+
+.sq-div {
+    position: absolute;
+    height: auto;
+    width: auto;
+    z-index: 2 !important;
+    -ms-transform: rotate(-20deg); /* IE 9 */
+    -webkit-transform: rotate(-20deg); /* Safari prior 9.0 */
+    transform: rotate(-20deg); /* Standard syntax */
+    overflow: hidden;
+    margin-top: -38px;
+}
+
+#logingLoading {
+    display: none;
+}
+
+/*#loginbtn {
+    -ms-transform: rotate(20deg); 
+    -webkit-transform: rotate(20deg); 
+    transform: rotate(20deg);
+}
+
+.btn-span {
+    -ms-transform: rotate(20deg); 
+    -webkit-transform: rotate(20deg);
+    transform: rotate(-20deg);
+}*/

@@ -1,0 +1,77 @@
+﻿@model BookingApp.Models._Booking1
+
+@using (Html.BeginForm("", "", FormMethod.Post, new { @id="flightandhotel"}))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger"})
+<div class="row">
+    <div class="col-md-3 col-lg-3 col-xl-3 col-12 col-sm-12">
+        <div class="form-group">
+            @Html.LabelFor(n => n.From1, htmlAttributes: new { @class = "control-label" })
+            <div class="input-group">
+                @Html.EditorFor(n => n.From1, new { htmlAttributes = new { @class = "form-control", @id = "fhFrom", @placeholder = "Enter starting location" } })
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-map-marker"></span>
+                </span>
+            </div>
+            @Html.ValidationMessageFor(n => n.From1, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-md-3 col-lg-3 col-xl-3 col-12 col-sm-12">
+        <div class="form-group">
+            @Html.LabelFor(n => n.To1, htmlAttributes: new { @class = "control-label" })
+            <div class="input-group">
+                @Html.EditorFor(n => n.To1, new { htmlAttributes = new { @class = "form-control", @id = "fhTo", @placeholder = "Enter destination" } })
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-map-marker"></span>
+                </span>
+            </div>
+            @Html.ValidationMessageFor(n => n.To1, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-md-2 col-lg-2 col-xl-2 col-12 col-sm-12">
+        <div class="form-group">
+            @Html.LabelFor(n => n.DpartDate1, htmlAttributes: new { @class = "control-label" })
+            <div class="input-group date" id="flightdatetimepicker0">
+                @Html.EditorFor(n => n.DpartDate1, new { htmlAttributes = new { @class = "form-control", @id = "fhDpart", @placeholder = "Select departure date" } })
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+            @Html.ValidationMessageFor(n => n.DpartDate1, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-md-2 col-lg-2 col-xl-2 col-12 col-sm-12">
+        <div class="form-group">
+            @Html.LabelFor(n => n.RturnDate1, htmlAttributes: new { @class = "control-label" })
+            <div class="input-group date" id="flightdatetimepicker1">
+                @Html.EditorFor(n => n.RturnDate1, new { htmlAttributes = new { @class = "form-control", @id = "fhRturn", @placeholder = "Select return date" } })
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+            @Html.ValidationMessageFor(n => n.RturnDate1, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-md-2 col-lg-2 col-xl-2 col-12 col-sm-12">
+        <div class="form-group">
+            @Html.LabelFor(n => n.Pssngers1, htmlAttributes: new { @class = "control-label" })
+            <div class="input-group">
+                @Html.EditorFor(n => n.Pssngers1, new { htmlAttributes = new { @class = "form-control", @id = "_pssngerCounts", @disabled = "disabled" } })
+                <span class="input-group-addon" data-target="#_flightAndHotels" data-toggle="collapse">
+                    <span class="glyphicon glyphicon-chevron-down" style="cursor:pointer;z-index:2000"></span>
+                </span>
+            </div>
+            @Html.ValidationMessageFor(n => n.Pssngers1, "", new { @class = "text-danger" })
+            <div class="collapse" id="_flightAndHotels">
+                @RenderPage("~/Views/Home/RoomCounts.cshtml")
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 col-lg-12 col-xl-12 col-12">
+        <div class="form-group">
+            <button class="btn btn-primary">Book Now</button>
+        </div>
+    </div>
+</div>
+}

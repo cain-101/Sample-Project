@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Schedule</title>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse" style="z-index:2000;background-color:transparent;border:none;margin:0!important">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav" id="left-nav">
+                    <li>@Html.ActionLink("Domestic", "Domestic", "Home")</li>
+                    <li>@Html.ActionLink("International", "About", "Home")</li>
+                    <li>@Html.ActionLink("D.I.Y", "Contact", "Home")</li>
+                </ul>
+                <ul class="nav navbar-nav" id="right-nav">
+                    <li>@Html.ActionLink("Educational Tour", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Consult", "About", "Home")</li>
+                    <li>@Html.ActionLink("Schedule", "Schedule", "Home", null, new { @class = "nav-link active-page"})</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="image-holder" style="background-color:white">
+        <a href="@Url.Action("Index","Home")" title="Click me to back to home page"><img src="~/Bg-img/nav-img.png" class="img-fluid p-0 m-0 user-img" /></a>
+    </div>
+
+    <header class="masthead" id="headmaster">
+        <div id="demo" class="carousel slide" data-ride="carousel">
+            @*<div class="carousel-indicators" id="user-indecators">
+                <div class="row">
+                    <div data-target="#demo" data-slide-to="0" class="active user-thumbs mb-1">
+                        <img src="~/Bg-img/views/Coron-Palawan-Philippines-Tourists-spots-Philippines-800x450.jpg" height="25" width="45" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div data-target="#demo" data-slide-to="1" class="user-thumbs mb-1">
+                        <img src="~/Bg-img/views/france-paris-eiffel-tower.jpg" height="25" width="45" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div data-target="#demo" data-slide-to="2" class="user-thumbs mb-1">
+                        <img src="~/Bg-img/views/Kalanggaman-Island-Palompon-Leyte.jpg" height="25" width="40" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div data-target="#demo" data-slide-to="3" class="user-thumbs mb-1">
+                        <img src="~/Bg-img/views/Mount-Mayon.jpg" height="25" width="45" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div data-target="#demo" data-slide-to="4" class="user-thumbs mb-1">
+                        <img src="~/Bg-img/views/shutterstock-329818472.jpg" height="25" width="45" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div data-target="#demo" data-slide-to="5" class="user-thumbs mb-1">
+                        <img src="~/Bg-img/views/Tourist-Spots-in-Pangasinan.jpg" height="25" width="45" />
+                    </div>
+                </div>
+            </div>*@
+            <div class="carousel-inner">
+                @*<div class="carousel-item item active">
+                    <img src="~/Bg-img/views/4-1.jpg" class="img-min-h img-fluid">
+                    <div class="carousel-caption" id="first-caption">
+                        <img src="~/image/header-slider/header-text/capa.png" class="first-cap-ftext" />
+                        <img src="~/image/header-slider/header-text/capb.png" class="first-cap-stext" />
+                    </div>
+                </div>*@
+                <div class="carousel-item item active">
+                    <img src="~/Bg-img/views/Cagsawaruins.jpg" class="img-min-h img-fluid">
+                    @*<div class="carousel-caption" id="second-caption">
+                        <img src="~/image/header-slider/header-text/collagen-name.png" />
+                    </div>*@
+                </div>
+                <div class="carousel-item item">
+                    <img src="~/Bg-img/views/DSC_0610.jpg" class="img-min-h img-fluid">
+                    @*<div class="carousel-caption" id="third-caption">
+                        <img src="~/image/header-slider/header-text/red2.png" />
+                    </div>*@
+                </div>
+                <div class="carousel-item item">
+                    <img src="~/Bg-img/views/IMG_1885.jpg" class="img-min-h img-fluid">
+                    @*<div class="carousel-caption" id="fourth-caption">
+                        <img src="~/image/header-slider/header-text/smoo.png" />
+                    </div>*@
+                </div>
+                <div class="carousel-item item">
+                    <img src="~/Bg-img/views/Tourist-Attractions-In-Mindanao.jpg" class="img-min-h img-fluid">
+                    @*<div class="carousel-caption" id="fifth-caption">
+                        <img src="~/image/header-slider/header-text/lav-lav.png" />
+                    </div>*@
+                </div>
+                @*<div class="carousel-item item">
+                    <img src="~/Bg-img/views/Tourist-Spots-in-Pangasinan.jpg" class="img-min-h img-fluid">
+                    <div class="carousel-caption">
+
+                    </div>
+                </div>
+                <div class="carousel-item item">
+                    <img src="~/image/header-slider/probiotics-header-home.jpg" class="img-min-h img-fluid">
+                    <div class="carousel-caption">
+
+                    </div>
+                </div>
+                <div class="carousel-item item">
+                    <img src="~/image/header-slider/FirstSlide.jpg" class="img-min-h img-fluid">
+                    <div class="carousel-caption">
+
+                    </div>
+                </div>*@
+            </div>
+        </div>
+    </header>
+    @RenderPage("~/Views/Home/Booking.cshtml")
+
+    <section id="howTopay">
+        <h1 class="text-center">How to pay your booking</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-lg-12 col-md-8 col-lg-8 col-xl-8">
+                    <ul>
+                        <li style="padding:10px">
+                            Put a content here..
+                            <ul>
+                                <li style="padding:10px">
+                                    Put a content here..
+                                </li>
+                            </ul>
+                        </li>
+                        <li style="padding:10px">
+                            Put a content here..
+                            <ul>
+                                <li style="padding:10px">
+                                    Put a content here..
+                                </li>
+                            </ul>
+                        </li>
+                        <li style="padding:10px">
+                            Put a content here..
+                            <ul>
+                                <li style="padding:10px">
+                                    Put a content here..
+                                </li>
+                            </ul>
+                        </li>
+                        <li style="padding:10px">
+                            Put a content here..
+                            <ul>
+                                <li style="padding:10px">
+                                    Put a content here..
+                                </li>
+                            </ul>
+                        </li>
+                        <li style="padding:10px">
+                            Put a content here..
+                            <ul>
+                                <li style="padding:10px">
+                                    Put a content here..
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-12 col-lg-12 col-md-4 col-lg-4 col-xl-4">
+                    <h4  style="padding:10px">Accounts</h4>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td>Bank name</td>
+                            <td>account number</td>
+                        </tr>
+                        <tr>
+                            <td>Bank name</td>
+                            <td>account number</td>
+                        </tr>
+                        <tr>
+                            <td>Bank name</td>
+                            <td>account number</td>
+                        </tr>
+                        <tr>
+                            <td>Bank name</td>
+                            <td>account number</td>
+                        </tr>
+                    </table>
+                    <ul>
+                        <li  style="padding:10px">Other steps
+                            <ul>
+                                <li  style="padding:10px">
+                                    Put content here.
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="background:grey;width:100%;color:white">
+            <div class="row" style="padding:10px">
+                <div class="col-md-4 col-lg-4 col-xl-4 col-lg-12 col-sm-12 text-center">
+                    <img src="~/Bg-img/travel-logo-900.png" class="img-fluid" height="100" />
+                    <p style="color:white!important;margin-top:10px;">
+                        say something here.
+                    </p>
+                </div>
+                <div class="col-md-4 col-lg-4 col-xl-4 col-lg-12 col-sm-12 text-center">
+                    <h3 class="text-uppercase">contact us</h3>
+
+                </div>
+                <div class="col-md-4 col-lg-4 col-xl-4 col-lg-12 col-sm-12 text-center">
+                    <h3 class="text-uppercase">location</h3>
+                </div>
+            </div>
+        </div>
+        <hr style="border-color:white;margin:0" />
+        <div class="container" style="background:grey;width:100%;color:white">
+            <div class="row" style="padding:10px">
+                <div class="col-md-6 col-lg-6 col-xl-6 col-lg-12 col-sm-12 text-center">
+                    <h3 class="text-uppercase">Copyright</h3>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-6 col-lg-12 col-sm-12 text-center">
+                    <h3 class="text-uppercase">Other details</h3>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/moment.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+    <link href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/themes/blitzer/jquery-ui.css"
+          rel="Stylesheet" type="text/css" />
+    <script src="~/Scripts/BookingJs.js"></script>
+
+</body>
+</html>

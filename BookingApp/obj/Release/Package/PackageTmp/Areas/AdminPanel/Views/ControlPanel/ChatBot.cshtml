@@ -1,0 +1,140 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mhyle Travel ChatBot</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    @Scripts.Render("~/styles/fontawesome-kit")
+    @Styles.Render("~/styles/tempusdominus-4")
+    @Styles.Render("~/styles/bootstrap-4")
+    <style>
+        #chat-sessions p {
+            cursor: pointer !important;
+        }
+        #scroll-sessions {
+            overflow-x: scroll;
+            max-height: 800px;
+        }
+        .chat-msgs {
+            max-height: 400px;
+            overflow-x: scroll;
+        }
+
+        .table-scrolled {
+            max-height: 400px;
+            overflow-x: scroll;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="card mt-2 p-2">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="well sidebar-nav">
+                        <div class="card" id="scroll-sessions">
+                            <h4 class="p-2" style="color:gray">Chat Sessions</h4>
+                            <div id="chat-sessions" class="p-2">
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.well -->
+                </div>
+                <!--/span-->
+                <div id="chat-content" class="col-md-9">
+                    <div id="login" class="card p-2" style="width:400px;">
+                        <div id="login-alerts"></div>
+                        <fieldset>
+                            <legend style="color:gray">Setup agent name</legend>
+                            <p>
+                                <label style="color:gray">Agent Name</label>
+                                <input id="login-name" type="text" class="form-control" placeholder="Agent name">
+                            </p>
+                            <button id="login-btn" type="submit" class="btn btn-success btn-medium">Start accepting chat</button>
+                        </fieldset>
+                    </div>
+                    <div id="agent-chat" class="card p-2">
+                        <div id="real-time-visits" style="color:gray">
+                            <div class="row">
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                    <h4 style="color:gray">Real time visits</h4>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right">
+                                    <span id="date_time"></span>
+                                </div>
+                            </div>
+                            <div class="table-scrolled card">
+                                <table id="current-visits" class="table table-striped table-bordered" style="color:gray">
+                                    <thead>
+                                        <tr>
+                                            <th>Requested on</th>
+                                            <th>Page</th>
+                                            <th>Referrer</th>
+                                            <th>In Chat</th>
+                                            <th>Invite</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="all-chatbox" class="card p-4 bg-light mt-2">
+                            <div id="chatmsgsinternal" class="chat-msgs"></div>
+                        </div>
+                        <div id="chat-controls" class="row p-2">
+                            <div class="col-12">
+                                @*<input id="post-msg" type="text" class="form-control" placeholder="Enter your text here. Enter /list for a list of available commands" />
+                                    <button id="post-btn" class="btn btn-primary">Send</button>*@
+                                <div class="input-group">
+                                    <input id="post-msg" type="text" placeholder="Enter your text here. Enter /list for a list of available commands" class="form-control" aria-label="" aria-describedby="basic-addon1">
+                                    <div class="input-group-append">
+                                        <button id="post-btn" class="btn btn-primary">Send</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/span-->
+        </div>
+        <!--/row-->
+    </div>
+    </div>
+    <!--/.fluid-container-->
+
+
+    <div id="modal-cmd" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-left">
+                    <h3>Available commands</h3>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery-1")
+    @Scripts.Render("~/bundles/bootstrap-4")
+    @Scripts.Render("~/bundles/timeage")
+    @Scripts.Render("~/bundles/signalr")
+    <script src="~/signalr/hubs"></script>
+    @Scripts.Render("~/bundles/agentchat")
+    @Scripts.Render("~/bundles/dateTime")
+    <script type="text/javascript">window.onload = date_time('date_time');</script>
+    @*@RenderSection("scripts", required: false)*@
+</body>
+</html>

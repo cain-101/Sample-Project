@@ -1,0 +1,27 @@
+C:\Users\st0w\Desktop\new MTWithDB\BookingApp\MhylesTravelDB\bin\Debug\MhylesTravelDB.dacpac
+C:\Users\st0w\Desktop\new MTWithDB\BookingApp\MhylesTravelDB\bin\Debug\MhylesTravelDB.dll
+C:\Users\st0w\Desktop\new MTWithDB\BookingApp\MhylesTravelDB\bin\Debug\MhylesTravelDB.pdb
+C:\Users\st0w\Desktop\new MTWithDB\BookingApp\MhylesTravelDB\obj\Debug\Model.xml
+C:\Users\st0w\Desktop\new MTWithDB\BookingApp\MhylesTravelDB\obj\Debug\refactor.xml
+C:\Users\st0w\Desktop\new MTWithDB\BookingApp\MhylesTravelDB\obj\Debug\postdeploy.sql
+C:\Users\st0w\Desktop\new MTWithDB\BookingApp\MhylesTravelDB\obj\Debug\predeploy.sql
+C:\Users\st0w\Desktop\new MTWithDB\BookingApp\MhylesTravelDB\obj\Debug\MhylesTravelDB.dll
+C:\Users\st0w\Desktop\new MTWithDB\BookingApp\MhylesTravelDB\obj\Debug\MhylesTravelDB.pdb
+C:\Users\SWAK-01\Desktop\new MTwithMySql\new MTWithDB\BookingApp\MhylesTravelDB\bin\Debug\MhylesTravelDB.dacpac
+C:\Users\SWAK-01\Desktop\new MTwithMySql\new MTWithDB\BookingApp\MhylesTravelDB\bin\Debug\MhylesTravelDB.dll
+C:\Users\SWAK-01\Desktop\new MTwithMySql\new MTWithDB\BookingApp\MhylesTravelDB\bin\Debug\MhylesTravelDB.pdb
+C:\Users\SWAK-01\Desktop\new MTwithMySql\new MTWithDB\BookingApp\MhylesTravelDB\obj\Debug\Model.xml
+C:\Users\SWAK-01\Desktop\new MTwithMySql\new MTWithDB\BookingApp\MhylesTravelDB\obj\Debug\refactor.xml
+C:\Users\SWAK-01\Desktop\new MTwithMySql\new MTWithDB\BookingApp\MhylesTravelDB\obj\Debug\postdeploy.sql
+C:\Users\SWAK-01\Desktop\new MTwithMySql\new MTWithDB\BookingApp\MhylesTravelDB\obj\Debug\predeploy.sql
+C:\Users\SWAK-01\Desktop\new MTwithMySql\new MTWithDB\BookingApp\MhylesTravelDB\obj\Debug\MhylesTravelDB.dll
+C:\Users\SWAK-01\Desktop\new MTwithMySql\new MTWithDB\BookingApp\MhylesTravelDB\obj\Debug\MhylesTravelDB.pdb
+C:\Users\George\Desktop\new p\new MTwithMySql\new MTWithDB\BookingApp\MhylesTravelDB\bin\Debug\MhylesTravelDB.dacpac
+C:\Users\George\Desktop\new p\new MTwithMySql\new MTWithDB\BookingApp\MhylesTravelDB\bin\Debug\MhylesTravelDB.dll
+C:\Users\George\Desktop\new p\new MTwithMySql\new MTWithDB\BookingApp\MhylesTravelDB\bin\Debug\MhylesTravelDB.pdb
+C:\Users\George\Desktop\new p\new MTwithMySql\new MTWithDB\BookingApp\MhylesTravelDB\obj\Debug\Model.xml
+C:\Users\George\Desktop\new p\new MTwithMySql\new MTWithDB\BookingApp\MhylesTravelDB\obj\Debug\refactor.xml
+C:\Users\George\Desktop\new p\new MTwithMySql\new MTWithDB\BookingApp\MhylesTravelDB\obj\Debug\postdeploy.sql
+C:\Users\George\Desktop\new p\new MTwithMySql\new MTWithDB\BookingApp\MhylesTravelDB\obj\Debug\predeploy.sql
+C:\Users\George\Desktop\new p\new MTwithMySql\new MTWithDB\BookingApp\MhylesTravelDB\obj\Debug\MhylesTravelDB.dll
+C:\Users\George\Desktop\new p\new MTwithMySql\new MTWithDB\BookingApp\MhylesTravelDB\obj\Debug\MhylesTravelDB.pdb

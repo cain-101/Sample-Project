@@ -1,0 +1,302 @@
+﻿<div class="content">
+    <div class="container-fluid">
+        <button type="button" class="btn btn-success pull-left pl-2 pr-2" data-toggle="modal" data-target="#ntPackage">
+            <i class="fas fa-plus-circle fa-lg"></i> Add Package Name
+        </button>
+        <div class="card p-2">
+            <h4 class="my-font-18 text-center font-red p-2 mt-1" style="opacity:0.8">Package Informations</h4>
+            <hr class="my-border mt-0" />
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 pt-1 pb-4">
+                    <div class="input-group">
+                        <select class="custom-select dd-user my-font-13" name="ntPName" id="_ntPName">
+                            @* Dynamic option populating *@
+                        </select>
+                    </div>
+                    <span class="text-danger nt_ppError my-font-13"></span>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 pt-1 pb-3">
+                    <div class="input-group">
+                        <select id="_bedroom" name="p_bedroom" class="custom-select dd-user my-font-13">
+                            @* Dynamic option populating *@
+                        </select>
+                    </div>
+                    <span class="text-danger my-font-13 bedError"></span>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 pt-3 pb-3">
+                    <div class="input-group">
+                        <input type="text" class="form-control my-font-13 my-placeholder" id="packagePrice" placeholder="Enter package price" />
+                    </div>
+                    <span class="text-danger my-font-13" id="ErrorPrice"></span>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 pt-3 pb-3">
+                    <div class="shadow-effect">
+                        <div class="_element" id="travelDetails">
+                            <h4 class="my-font-18 text-center font-red p-2 mt-1" style="opacity:0.8">Flight details</h4>
+                            <hr class="my-border mt-0" />
+                            <div class="row p-2 _elements" id="travelDetailsDiv_1">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Flight details" name="flightDetails" id="flightDetails_1" class="form-control my-placeholder _flightDetails">
+                                    </div>
+                                    <span class="text-danger my-font-13 flDError"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                                <button class="btn btn-outline-success pr-2 pl-2" id="btnAdddetails"> <i class="fas fa-plus-circle fa-lg"></i> Add Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                    <div class="shadow-effect mb-2">
+                        <div class="element" id="travelDates">
+                            <h4 class="my-font-18 text-center font-red p-2 mt-1" style="opacity:0.8">Travel date(s)</h4>
+                            <hr class="my-border mt-0" />
+                            <div class="row p-2 elements" name="divArray" id="travelDAtesDiv_1">
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-2 pb-2">
+                                    <div class="form-group">
+                                        <label class="control-label my-font-13 label-color" for="fromtDate_1">From</label>
+                                        <input type="text" class="form-control datetimepicker" name="fromtDate" id="fromtDate_1" placeholder="Select date" />
+                                    </div>
+                                    <span class="text-danger my-font-13"></span>
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-2 pb-2">
+                                    <div class="form-group">
+                                        <label class="control-label my-font-13 label-color" for="toDate_1">To</label>
+                                        <input type="text" class="form-control datetimepicker" name="toDate" id="toDate_1" placeholder="Select date" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                                <button class="btn btn-outline-success pr-2 pl-2" id="btnAddTdate"><i class="fas fa-plus-circle fa-lg"></i> Add Date(s)</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                    <div class="shadow-effect">
+                        <div class="element0" id="travelInclusion">
+                            <h4 class="my-font-18 text-center font-red p-2 mt-1" style="opacity:0.8">Inclusion</h4>
+                            <hr class="my-border mt-0" />
+                            <div class="row p-2 elements0" id="travelInclusionDiv_1">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Inclusion" name="inclusion" id="inclusion_1" class="form-control my-placeholder">
+                                    </div>
+                                    <span class="text-danger my-font-13 incErr"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                                <button class="btn btn-outline-success pr-2 pl-2" id="btnInclusion"><i class="fas fa-plus-circle fa-lg"></i> Add inclusion(s)</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                    <div class="shadow-effect mt-2">
+                        <div class="element" id="p_Itinerary">
+                            <h4 class="my-font-18 text-center font-red p-2 mt-2" style="opacity:0.8">Itinerary</h4>
+                            <hr class="my-border mt-0" />
+                            <div class="row p-2 i_elements" name="Itinerary" id="Itinerary_1">
+                                <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-2 pb-2">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control my-placeholder" id="ItineraryTitle_1" name="ItineraryTitle" placeholder="Itinerary title" />
+                                    </div>
+                                    <span class="text-danger my-font-13 itiTiError"></span>
+                                </div>
+                                <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 pt-2 pb-2">
+                                    <div class="form-group">
+                                        <textarea class="form-control my-placeholder" name="ItineraryDes" id="ItineraryDes_1" placeholder="Itinerary description" rows="5"></textarea>
+                                    </div>
+                                    <span class="text-danger my-font-13 itiDesError"></span>
+                                </div>
+                                <div class="col-12 pt-2 pb-2">
+                                    <fieldset class="scheduler-border">
+                                        <legend class="scheduler-border text-dark">Free Meals:</legend>
+                                        <label class="containers">
+                                            Breakfast
+                                            <input name="bmeals" id="bmeals_1" type="checkbox" value="1" />
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="containers">
+                                            Lunch
+                                            <input name="lmeals" id="lmeals_1" type="checkbox" value="1" />
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="containers">
+                                            Dinner
+                                            <input name="dmeals" id="dmeals" type="checkbox" value="1" />
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                                <button class="btn btn-outline-success pr-2 pl-2" id="btnAddItinerary"><i class="fas fa-plus-circle fa-lg"></i> Add itinerary</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                    <div class="shadow-effect">
+                        <div class="elem" id="traveltermCondition">
+                            <h4 class="my-font-18 text-center font-red p-2 mt-1" style="opacity:0.8">Terms and Conditions</h4>
+                            <hr class="my-border mt-0" />
+                            <div class="row p-2 elem0" id="traveltermCondition_1">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Terms and Conditions" name="termCondition" id="termCondition_1" class="form-control my-placeholder">
+                                    </div>
+                                    <span class="text-danger my-font-13 tConError"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                                <button class="btn btn-outline-success pr-2 pl-2" id="btntermCondition"><i class="fas fa-plus-circle fa-lg"></i> Add Terms and Condition(s)</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                    <div class="shadow-effect">
+                        <div class="_elem" id="travelExclusion">
+                            <h4 class="my-font-18 text-center font-red p-2 mt-1" style="opacity:0.8">Exclusion</h4>
+                            <hr class="my-border mt-0" />
+                            <div class="row p-2 _elem0" id="travelExclusion_1">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Exclusion" name="exclusion" id="exclusion_1" class="form-control my-placeholder">
+                                    </div>
+                                    <span class="text-danger my-font-13 exCError"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                                <button class="btn btn-outline-success pr-2 pl-2" id="btnExclusion"><i class="fas fa-plus-circle fa-lg"></i> Add Exclusion</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                    <div class="shadow-effect">
+                        <div class="_elem" id="visaDiv">
+                            <h4 class="my-font-18 text-center font-red p-2 mt-1" style="opacity:0.8">Visa Requirements</h4>
+                            <hr class="my-border mt-0" />
+                            <div class="row p-2 visaElement" id="visacontent_1">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Visa requirements" name="visarequirements" id="visa_1" class="form-control my-placeholder">
+                                    </div>
+                                    <span class="text-danger my-font-13 visaErr"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                                <button class="btn btn-outline-success pr-2 pl-2" id="btnVisa"><i class="fas fa-plus-circle fa-lg"></i> Add Visa Req.</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 mt-2">
+                    <div class="shadow-effect mt-2">
+                        <div class="element" id="p_Photels">
+                            <h4 class="my-font-18 text-center font-red p-2 mt-2" style="opacity:0.8">Probable Hotel(s)</h4>
+                            <hr class="my-border mt-0" />
+                            <div class="row p-2 pp_elements" name="photels" id="photels_1">
+                                <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-2 pb-2">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control my-placeholder" id="photelLoc_1" name="hotellocation" placeholder="Location" />
+                                    </div>
+                                    <span class="text-danger my-font-13 photelLocErr"></span>
+                                </div>
+                                <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 pt-2 pb-2">
+                                    <div class="form-group">
+                                        <input class="form-control my-placeholder" name="probablehotel" id="pphotels_1" placeholder="Probable hotel" />
+                                    </div>
+                                    <span class="text-danger my-font-13 pphotelsErr"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                                <button class="btn btn-outline-success pr-2 pl-2" id="btnPPhotels"><i class="fas fa-plus-circle fa-lg"></i> Add probalbe hotel(s)</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Package name -->
+<div class="modal fade" id="ntPackage">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="fas fa-window-close"></i></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="card">
+                    <h4 class="my-font-18 text-center font-red p-2 mt-1" style="opacity:0.8">Add Package</h4>
+                    <hr class="my-border mt-0" />
+                    <div class="row p-2" name="nTPackageAddDiv">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pt-3 pb-6">
+                            <div class="input-group">
+                                <input type="text" name="ntPackageN" id="packageName" class="ntPackageN form-control my-font-13 my-placeholder" placeholder="Enter package name" />
+                            </div>
+                            <span class="text-danger pNameError my-font-13"></span>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pt-3 pb-3">
+                            <div class="input-group">
+                                <select class="custom-select dd-user my-font-13 NTCategory" name="NTCategory" id="_category">
+                                    @* Dynamic option populating *@
+                                </select>
+                            </div>
+                            <span class="text-danger nt_pcError my-font-13"></span>
+                        </div>
+                    </div>
+                    <div class="row pr-2 pb-1">
+                        <div class="col-12">
+                            <button class="btn btn-success btn-md pull-right" id="BTnNTPackage" type="button">Save Package</button>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"><strong>Close</strong></button>
+            </div>
+
+        </div>
+    </div>
+</div>

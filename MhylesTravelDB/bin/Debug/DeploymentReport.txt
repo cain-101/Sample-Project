@@ -1,0 +1,54 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[ConditionUDT] (User-Defined Table Type)
+       [dbo].[DateUDT] (User-Defined Table Type)
+       [dbo].[ExclusionUDT] (User-Defined Table Type)
+       [dbo].[FlightDUDT] (User-Defined Table Type)
+       [dbo].[InclusionUDT] (User-Defined Table Type)
+       [dbo].[MyUDT] (User-Defined Table Type)
+       [dbo].[photelUDT] (User-Defined Table Type)
+       [dbo].[VisaReqUDT] (User-Defined Table Type)
+       [dbo].[bedrooms] (Table)
+       [dbo].[category] (Table)
+       [dbo].[condition] (Table)
+       [dbo].[exclusion] (Table)
+       [dbo].[flightdetails] (Table)
+       [dbo].[imagetable] (Table)
+       [dbo].[inclusion] (Table)
+       [dbo].[indexslide] (Table)
+       [dbo].[itinerary] (Table)
+       [dbo].[photel] (Table)
+       [dbo].[t_package] (Table)
+       [dbo].[traveldates] (Table)
+       [dbo].[visareq] (Table)
+       Foreign Key: unnamed constraint on [dbo].[condition] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[exclusion] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[flightdetails] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[imagetable] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[inclusion] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[itinerary] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[photel] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[t_package] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[t_package] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[traveldates] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[visareq] (Foreign Key)
+       [dbo].[Condition_insert] (Procedure)
+       [dbo].[Exclusion_insert] (Procedure)
+       [dbo].[FlightDetails_insert] (Procedure)
+       [dbo].[Inclusion_insert] (Procedure)
+       [dbo].[Itinerary_insert] (Procedure)
+       [dbo].[Phtel_insert] (Procedure)
+       [dbo].[TravelDateInsert] (Procedure)
+       [dbo].[VisaReq_insert] (Procedure)
+
+** Supporting actions

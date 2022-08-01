@@ -1,0 +1,242 @@
+﻿@model BookingApp.Models._BookingModel
+
+
+@using (Html.BeginForm("", "", FormMethod.Post, new { @id = "multiCities" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.From_, htmlAttributes: new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.EditorFor(m => m.From_, new { htmlAttributes = new { @class = "form-control", @id = "from_-input", @placeholder = "Enter starting location" } })
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-map-marker"></span>
+                    </span>
+                </div>
+                @Html.ValidationMessageFor(m => m.From_, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-lg-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.To_, htmlAttributes: new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.EditorFor(m => m.To_, new { htmlAttributes = new { @class = "form-control", @id = "to_-input", @placeholder = "Enter destination" } })
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-map-marker"></span>
+                    </span>
+                </div>
+                @Html.ValidationMessageFor(m => m.To_, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-lg-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.DpartDate_, htmlAttributes: new { @class = "control-label" })
+                <div class="input-group date" id="datetimepicker0_">
+                    @Html.EditorFor(m => m.DpartDate_, new { htmlAttributes = new { @class = "form-control", @id = "dDate0_", @placeholder = "Select departure date" } })
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                @Html.ValidationMessageFor(m => m.DpartDate_, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.From1_, htmlAttributes: new { @class = "control-label hidden-lg hidden-md hidden-xl" })
+                <div class="input-group">
+                    @Html.EditorFor(m => m.From1_, new { htmlAttributes = new { @class = "form-control", @id = "from1_-input", @placeholder = "Enter starting location" } })
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-map-marker"></span>
+                    </span>
+                </div>
+                @Html.ValidationMessageFor(m => m.From1_, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-lg-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.To1_, htmlAttributes: new { @class = "control-label hidden-lg hidden-md hidden-xl" })
+                <div class="input-group">
+                    @Html.EditorFor(m => m.To1_, new { htmlAttributes = new { @class = "form-control", @id = "to1_-input", @placeholder = "Enter destination" } })
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-map-marker"></span>
+                    </span>
+                </div>
+                @Html.ValidationMessageFor(m => m.To1_, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-lg-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.DpartDate1_, htmlAttributes: new { @class = "control-label hidden-lg hidden-md hidden-xl" })
+                <div class="input-group date" id="datetimepicker1_">
+                    @Html.EditorFor(m => m.DpartDate1_, new { htmlAttributes = new { @class = "form-control", @id = "dDate1_", @placeholder = "Select departure date" } })
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                @Html.ValidationMessageFor(m => m.DpartDate1_, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.From2_, htmlAttributes: new { @class = "control-label hidden-lg hidden-md hidden-xl" })
+                <div class="input-group">
+                    @Html.EditorFor(m => m.From2_, new { htmlAttributes = new { @class = "form-control", @id = "from2_-input", @placeholder = "Enter starting location" } })
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-map-marker"></span>
+                    </span>
+                </div>
+                @Html.ValidationMessageFor(m => m.From2_, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-lg-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.To2_, htmlAttributes: new { @class = "control-label hidden-lg hidden-md hidden-xl" })
+                <div class="input-group">
+                    @Html.EditorFor(m => m.To2_, new { htmlAttributes = new { @class = "form-control", @id = "to2_-input", @placeholder = "Enter destination" } })
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-map-marker"></span>
+                    </span>
+                </div>
+                @Html.ValidationMessageFor(m => m.To2_, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-lg-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.DpartDate2_, htmlAttributes: new { @class = "control-label hidden-lg hidden-md hidden-xl" })
+                <div class="input-group date" id="datetimepicker2_">
+                    @Html.EditorFor(m => m.DpartDate2_, new { htmlAttributes = new { @class = "form-control", @id = "dDate2_", @placeholder = "Select departure date" } })
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                @Html.ValidationMessageFor(m => m.DpartDate2_, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.From3_, htmlAttributes: new { @class = "control-label hidden-lg hidden-md hidden-xl" })
+                <div class="input-group">
+                    @Html.EditorFor(m => m.From3_, new { htmlAttributes = new { @class = "form-control", @id = "from3_-input", @placeholder = "Enter starting location" } })
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-map-marker"></span>
+                    </span>
+                </div>
+                @Html.ValidationMessageFor(m => m.From3_, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-lg-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.To3_, htmlAttributes: new { @class = "control-label hidden-lg hidden-md hidden-xl" })
+                <div class="input-group">
+                    @Html.EditorFor(m => m.To3_, new { htmlAttributes = new { @class = "form-control", @id = "to3_-input", @placeholder = "Enter destination" } })
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-map-marker"></span>
+                    </span>
+                </div>
+                @Html.ValidationMessageFor(m => m.To3_, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-lg-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.DpartDate3_, htmlAttributes: new { @class = "control-label hidden-lg hidden-md hidden-xl" })
+                <div class="input-group date" id="datetimepicker3_">
+                    @Html.EditorFor(m => m.DpartDate3_, new { htmlAttributes = new { @class = "form-control", @id = "dDate3_", @placeholder = "Select departure date" } })
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                @Html.ValidationMessageFor(m => m.DpartDate3_, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.From4_, htmlAttributes: new { @class = "control-label hidden-lg hidden-md hidden-xl" })
+                <div class="input-group">
+                    @Html.EditorFor(m => m.From4_, new { htmlAttributes = new { @class = "form-control", @id = "from4_-input", @placeholder = "Enter starting location" } })
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-map-marker"></span>
+                    </span>
+                </div>
+                @Html.ValidationMessageFor(m => m.From4_, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-lg-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.To4_, htmlAttributes: new { @class = "control-label hidden-lg hidden-md hidden-xl" })
+                <div class="input-group">
+                    @Html.EditorFor(m => m.To4_, new { htmlAttributes = new { @class = "form-control", @id = "to4_-input", @placeholder = "Enter destination" } })
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-map-marker"></span>
+                    </span>
+                </div>
+                @Html.ValidationMessageFor(m => m.To4_, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-lg-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.DpartDate4_, htmlAttributes: new { @class = "control-label hidden-lg hidden-md hidden-xl" })
+                <div class="input-group date" id="datetimepicker4_">
+                    @Html.EditorFor(m => m.DpartDate4_, new { htmlAttributes = new { @class = "form-control", @id = "dDate4_", @placeholder = "Select departure date" } })
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                @Html.ValidationMessageFor(m => m.DpartDate4_, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Pssngers_, htmlAttributes: new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.EditorFor(m => m.Pssngers_, new { htmlAttributes = new { @class = "form-control", @id = "pssngerCounts", @disabled = "disabled", @data_toggle = "tooltip", @title = "Please click the arrow down", @data_placement = "top" } })
+                    <span class="input-group-addon" data-target="#psngr_" data-toggle="collapse">
+                        <span class="glyphicon glyphicon-chevron-down" style="cursor:pointer;z-index:2000"></span>
+                    </span>
+                </div>
+                @Html.ValidationMessageFor(m => m.Pssngers_, "", new { @class = "text-danger" })
+                <div class="collapse" id="psngr_">
+                    @RenderPage("~/Views/Home/Passengers1.cshtml")
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+            <div class="form-group">
+                @Html.LabelFor(m => m.classType_, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownListFor(m => m.classType_, new List<SelectListItem>()
+                   {
+                       new SelectListItem(){ Text = "Select Class", Value = "0"},
+                       new SelectListItem(){ Text = "Economy", Value = "Economy"},
+                       new SelectListItem(){ Text = "Premium Economy", Value = "Premium Economy"},
+                       new SelectListItem(){ Text = "Business", Value = "Business"},
+                   },
+                new { @class = "form-control dd-user", @id= "classType1_" } )
+                @Html.ValidationMessageFor(m => m.classType_, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-lg-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="form-group">
+                <button class="btn btn-primary">Book Now</button>
+            </div>
+        </div>
+    </div>
+}
+
+
+

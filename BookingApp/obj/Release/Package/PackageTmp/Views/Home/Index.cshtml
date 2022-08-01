@@ -1,0 +1,579 @@
+﻿@model BookingApp.Models.BookingModel
+<div class="index-class card pb-2">
+    <header class="masthead" id="headmaster">
+        <span class="date-span" id="date_time"></span>
+        <div id="demo" class="carousel slide" data-ride="carousel">
+            <div class="carousel-indicators" id="user-indecators">
+                @{ var c = 0;}
+                @foreach (var rows in ViewBag.IndesSS)
+                {
+                    if (c == 0)
+                    {
+                        <div class="row">
+                            <div data-target="#demo" data-slide-to="@c" class="active user-thumbs mb-1">
+                                <img src="~/DynamicFiles/@rows.is_img" height="30" width="50" />
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="row">
+                            <div data-target="#demo" data-slide-to="@c" class="user-thumbs mb-1">
+                                <img src="~/DynamicFiles/@rows.is_img" height="30" width="50" />
+                            </div>
+                        </div>
+                    }
+                    c++;
+                }
+            </div>
+            <div class="carousel-inner">
+                @{ var cc = 0;}
+                @foreach (var r in ViewBag.IndesSS)
+                {
+                    if (cc == 0)
+                    {
+                        <div class="carousel-item item active">
+                            <img src="~/DynamicFiles/@r.is_img" class="img-min-h img-fluid">
+                            <div class="carousel-caption" id="first-caption">
+                                <div class="domestic-caption-slide-1">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pl-md-5 pl-lg-5 pl-xl-5 pr-md-5 pr-lg-5 pr-xl-5">
+                                            <div class="d-caption-left text-white text-left">
+                                                @*@foreach (var a in ViewBag.Captions)
+                                                {
+                                                    <h2>
+                                                        @a.fh_cap
+                                                        @*Mhyles Corporation Travel & Tours*@
+                                                    @*</h2>
+                                                    <p>*@
+                                                        @*@a.fb_cap*@
+                                                        @*will help you create a memorable, worry free, premium travel experience that you would want to remember, time and again*@.
+                                                    @*</p>
+                                                }*@
+                                                @*<button class="my-btn my-font-14 btn" id="homeInquireBtn">Inquire Now</button>*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="carousel-item item">
+                            <img src="~/DynamicFiles/@r.is_img" class="img-min-h img-fluid">
+                            <div class="carousel-caption" id="second-caption">
+                                <div class="international-caption-slide-1">
+                                    <div class="row">
+                                        <div class="col-12 offset-lg-6 offset-xl-6 offset-md-6 col-sm-12 col-md-6 col-lg-6 col-xl-6  pl-md-5 pl-lg-5 pl-xl-5 pr-md-5 pr-lg-5 pr-xl-5">
+                                            <div class="i-caption-right font-red text-right">
+                                                @*@foreach (var a in ViewBag.Captions)
+                                                {
+                                                    <h2>
+                                                        @a.sh_cap
+                                                        @*Mhyles Corporation Travel & Tours*@
+                                                    @*</h2>
+                                                    <p>*@
+                                                        @*@a.sb_cap*@
+                                                        @*will help you create a memorable, worry free, premium travel experience that you would want to remember, time and again*@.
+                                                    @*</p>
+                                                }*@
+                                                @*<h2>Tempting Leisure Travels!</h2>
+                                                <p>Tell us your dream vacation destination and we'll take you there!</p>*@
+                                                @*<button class="btn my-btn my-font-14" id="homeExploreBtn">Explore Now</button>*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    cc++;
+                }
+
+                @*<div class="carousel-item item">
+                    <img src="~/Bg-img/slides/educational/9-11-Memorial-and-Museum-2-600x300.jpg" class="img-min-h img-fluid">
+                    <div class="carousel-caption" id="third-caption">
+                        <div class="educational-caption-slide-1">
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 pl-5 pr-5" id="edu-caption">
+                                    <div class="e-caption-left text-white p-5 text-left">
+                                        <h2>Say Something</h2>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+    </header>
+
+    <div id="indexSection2" class="shadow-effect  card p-2">
+        <h2 class="my-font-40 font-red p-md-4 p-sm-3 p-2 p-lg-5 p-xl-5 text-capitalize text-center title-captions">
+        @*Explore, Discover, Experience your best travel moments.*@
+            @foreach (var i in ViewBag.Captions)
+            {
+                @i.index_title
+            }
+        </h2>
+        <hr class="my-border mt-0 mb-sm-1 mb-1 mb-lg-2 mb-xl-2 mb-md-2" />
+        <div class="container-fluid bg-transparent mt-sm-0 mt-0">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 p-0 m-0">
+                    <div class="booking-Form card p-2 mt-lg-2 mt-xl-2 mt-md-2 mt-sm-1 mt-1 shadow-effect">
+                        <h4 class="my-font-18 p-lg-2 p-xl-2 p-md-2 p-sm-1 p-1 font-red text-capitalize text-center">Inquire Now</h4>
+                        <hr class="my-border mt-0" />
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link user_links active my-font-15 font-red" id="_flights_">Flights</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link user_links my-font-15 font-red" id="_flightAndHotels_">Flights + Hotels</a>
+                            </li>
+                        </ul>
+                        <div id="FlightsAndHotels">
+                            @RenderPage("~/Views/Home/Booking03.cshtml")
+                        </div>
+                        <div id="Flights">
+                            <ul class="nav nav-tabs mt-2">
+                                <li class="nav-item">
+                                    <a class="nav-link user_links active font-red my-font-15" id="user-links">Rount Trip</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link user_links font-red my-font-15" id="user-links0">One Way</a>
+                                </li>
+                                @*<li class="nav-item">
+                                        <a class="nav-link user_links font-red my-font-15" id="user-links1">Multi City</a>
+                                    </li>*@
+                            </ul>
+                            <div class="booking-form-body" id="RoundTrip">
+                                @using (Html.BeginForm("Inquire", "Home", FormMethod.Post, new { @id = "roundtripForm" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger my-font-14 font-red" })
+                                    <div class="row">
+                                        <div class="col-12 text-left">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.FullName, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+                                                <div class="input-group">
+                                                    @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control my-font-14", @placeholder = "Lastname, Firstname Middlename" } })
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger my-font-14" })
+                                            </div>
+                                        </div>
+                                        <div class="col-12 text-left">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+                                                <div class="input-group">
+                                                    @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control my-font-14", @placeholder = "Enter your email" } })
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger my-font-14" })
+                                            </div>
+                                        </div>
+                                        <div class="col-12 text-left">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.contact, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+                                                <div class="input-group">
+                                                    @Html.EditorFor(model => model.contact, new { htmlAttributes = new { @class = "form-control my-font-14", @placeholder = "Enter your phone number" } })
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.contact, "", new { @class = "text-danger my-font-14" })
+                                            </div>
+                                        </div>
+                                        <div class="col-12 text-left">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.From, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+                                                <div class="input-group">
+                                                    @Html.EditorFor(model => model.From, new { htmlAttributes = new { @class = "form-control my-font-14", @placeholder = "Enter starting location", @id = "FromId" } })
+                                                    <div class="input-group-append">
+                                                        <div class="input-group-text my-icon my-font-14"><i class="fas fa-map-marker-alt"></i></div>
+                                                    </div>
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.From, "", new { @class = "text-danger my-font-14" })
+                                            </div>
+                                        </div>
+                                        <div class="col-12 text-left">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.To, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+                                                <div class="input-group">
+                                                    @Html.EditorFor(model => model.To, new { htmlAttributes = new { @class = "form-control my-font-14", @placeholder = "Enter destination", @id = "ToId" } })
+                                                    <div class="input-group-append">
+                                                        <div class="input-group-text my-icon my-font-14"><i class="fas fa-map-marker-alt"></i></div>
+                                                    </div>
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.To, "", new { @class = "text-danger my-font-14" })
+                                            </div>
+                                        </div>
+                                        <div class="col-12 text-left">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.DpartDate, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+                                                <div class="form-group">
+                                                    <div class="input-group date" id="hDatetimepicker" data-target-input="nearest">
+                                                        @Html.EditorFor(model => model.DpartDate, new { htmlAttributes = new { @class = "form-control datetimepicker-input my-font-14", @data_target = "#hDatetimepicker", @id = "dDate", @placeholder = "Select return date" } })
+                                                        <div class="input-group-append" data-target="#hDatetimepicker" data-toggle="datetimepicker">
+                                                            <div class="input-group-text my-btn my-font-14"><i class="fas fa-calendar-alt"></i></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.DpartDate, "", new { @class = "text-danger my-font-14" })
+                                            </div>
+                                        </div>
+                                        <div class="col-12 text-left">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.RturnDate, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+                                                <div class="input-group date" id="hDatetimepicker1" data-target-input="nearest">
+                                                    @Html.EditorFor(model => model.RturnDate, new { htmlAttributes = new { @class = "form-control datetimepicker-input datepicker my-font-14", @data_target = "#hDatetimepicker1", @id = "rDate", @placeholder = "Select return date", @data_toggle = "tooltip", @title = "Please select departure date first", @data_placement = "top" } })
+                                                    <div class="input-group-append" data-target="#hDatetimepicker1" data-toggle="datetimepicker">
+                                                        <div id="RTRdate" class="input-group-text btn-disabled my-font-14"><i class="fas fa-calendar-alt"></i></div>
+                                                    </div>
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.RturnDate, "", new { @class = "text-danger my-font-14" })
+                                            </div>
+                                        </div>
+                                        <div class="col-12 text-left">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Pssngers, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+                                                <div class="input-group">
+                                                    @Html.EditorFor(model => model.Pssngers, new { htmlAttributes = new { @hidden = "hidden", @id = "passenger_counts" } })
+                                                    <input type="text" name="pssngerCounts" class="form-control my-font-14" id="pssngerCounts" disabled="disabled" data-toggle="tooltip" title="Please click the arrow down" data-placement="top" />
+                                                    <div class="input-group-append">
+                                                        <div class="input-group-text my-btn my-font-14" id="RTPssnger" data-target="#home_psngr" data-toggle="collapse" style="cursor:pointer"><i class="fas fa-angle-down"></i></div>
+                                                    </div>
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.Pssngers, "", new { @class = "text-danger my-font-14", @id = "pssngerCountsError" })
+                                                <div class="collapse" id="home_psngr">
+                                                    @RenderPage("~/Views/Home/Passenger01.cshtml")
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 text-left">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.concern, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+                                                <div class="input-group">
+                                                    @Html.EditorFor(model => model.concern, new { htmlAttributes = new { @class = "form-control my-font-14", @placeholder = "Optional", @rows = "6" } })
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.concern, "", new { @class = "text-danger my-font-14" })
+                                            </div>
+                                        </div>
+                                        <div class="col-12 text-left">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.classType, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+                                                @Html.DropDownListFor(model => model.classType, new List<SelectListItem>()
+                                                    {
+                                                        new SelectListItem(){ Text = "Select Class", Value = "0"},
+                                                        new SelectListItem(){ Text = "Economy", Value = "Economy"},
+                                                        new SelectListItem(){ Text = "Premium Economy", Value = "Premium Economy"},
+                                                        new SelectListItem(){ Text = "Business", Value = "Business"},
+                                                    },
+                                                new { @class = "form-control dd-user my-font-14", @id = "classTypes" } )
+                                                @Html.ValidationMessageFor(model => model.classType, "", new { @class = "text-danger my-font-14", @id = "classTypesError" })
+                                                @Html.EditorFor(model => model.bookingFiltering, new { htmlAttributes = new { @hidden = "hidden", @Value = "Roundtrip" } })
+                                            </div>
+                                        </div>
+                                        <div class="col-12 text-right">
+                                            <div class="form-group">
+                                                <button class="btn my-btn my-font-14" type="submit" id="btnInquireRoundTrip">Inquire Now</button>
+                                                <button class="btn my-font-14" type="button" id="btnInquireRoundTripLoad" disabled>
+                                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                                    Processing...
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <!--end of round trip-->
+                            <div class="booking-form-body" id="OneWay">
+                                @RenderPage("~/Views/Home/Booking01.cshtml")
+                            </div>
+                            <!--end of one way-->
+                            <!-- to be include in the future-->
+                            @*<div class="booking-form-body" id="MultiCity">
+                                    @RenderPage("~/Views/Home/Booking02.cshtml")
+                                </div>*@
+
+                        </div>
+                    </div>
+
+                    <!--end of booking form-->
+                    <div class="card mt-4 p-0 text-center">
+                        <h4 class="my-font-18 p-2 text-capitalize text-center font-red">Our Facebook page</h4>
+                        <hr class="my-border mt-0" />
+
+                        <div class="fb-page p-0" data-href="https://www.facebook.com/MhylesTravel/" data-tabs="timeline,events,messages" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                            <blockquote cite="https://www.facebook.com/MhylesTravel/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/MhylesTravel/">Facebook</a></blockquote>
+                        </div>
+                        <style>
+                            .fb-page {
+                                position: relative;
+                                height: 100%;
+                                width: 100%;
+                            }
+                        </style>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 p-0 m-0" id="ExploreDiv">
+                    <div class="pl-lg-2 pl-xl-2 pl-md-2 pr-lg-2 pr-xl-2 pr-md-2 pb-2 user-div01 ml-lg-2 ml-xl-2 ml-md-2 mt-2">
+                        <div class="card mb-3 shadow-effect pt-2 border-top-0">
+                            <h2 class="my-font-18 p-2 text-capitalize font-red text-center">Our Tours</h2>
+                        </div>
+                        @*<hr class="my-border mt-0 mb-sm-1 mb-1 mb-lg-3 mb-xl-3 mb-md-3" />*@
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+                                <div class="card">
+                                    @*@foreach (var d in ViewBag.Domestic)
+                                    {
+                                        try
+                                        {*@
+                                            <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                                                <div class="mainflip">
+                                                    <div class="frontside">
+                                                        <div class="card q-width">
+                                                            <a data-placement="top" data-toggle="tooltip" title="Hover me!"><img src="~/Bg-img/img/domestic2_1579754810.jpg" class="hover-animate-img  m-0 img-fluid" /></a>
+                                                           
+                                                        </div>
+                                                    </div>
+                                                    <div class="backside">
+                                                        <div class="card q-width">
+                                                            <div class="card-body text-center mt-4">
+                                                                <h4 class="card-title">Domestic Tour</h4>
+                                                                @*<p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>*@
+                                                                <ul class="list-inline">
+                                                                    <li class="list-inline-item">
+                                                                        <a class="social-icon text-xs-center link-hover" target="_blank" href="@Url.Action("Domestic","Home")">
+                                                                            Explore now
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @*<a href="@Url.Action("Domestic","Home")" onclick="alert('Domestic is not available for now'); return false" data-toggle="tooltip" title="Click me!" class="text-center bg-info text-white spot-name-link my-font-16">Domestic</a>*@
+                                        @*}
+
+                                        catch (Exception)
+                                        {
+                                            <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                                                <div class="mainflip">
+                                                    <div class="frontside">
+                                                        <div class="card">
+                                                            <a data-placement="top" data-toggle="tooltip" title="Hover me!"><img  src="~/DynamicFiles/defaultheader.jpg" class="hover-animate-img  m-0 img-fluid" /></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="backside">
+                                                        <div class="card">
+                                                            <div class="card-body text-center mt-4">
+                                                                <h4 class="card-title">Domestic Tour</h4>*@
+                                                                @*<p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>*@
+                                                                @*<ul class="list-inline">*@
+                                                                    @*<li class="list-inline-item">
+                                                                        <a class="social-icon text-xs-center link-hover" target="_blank" href="@Url.Action("Domestic","Home")">
+                                                                            Explore now
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    }*@
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+                                <div class="card q-width">
+                                    @*@foreach (var i in ViewBag.International)
+                                    {
+                                        try
+                                        {*@
+                                            <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                                                <div class="mainflip">
+                                                    <div class="frontside">
+                                                        <div class="card">
+                                                            <a data-placement="top" data-toggle="tooltip" title="Hover me!"><img src="~/Bg-img/img/international2_1579754810.jpg" class="hover-animate-img m-0 img-fluid" /></a>
+                                                        </div>
+                                                     
+                                                    </div>
+                                                    <div class="backside">
+                                                        <div class="card q-width">
+                                                            <div class="card-body text-center mt-4">
+                                                                <h4 class="card-title">International Tour</h4>
+                                                                @*<p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>*@
+                                                                <ul class="list-inline">
+                                                                    <li class="list-inline-item">
+                                                                        <a class="social-icon text-xs-center link-hover" target="_blank" href="@Url.Action("International", "Home")">
+                                                                            Explore now
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @*}
+
+                                        catch (Exception)
+                                        {
+                                            <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                                                <div class="mainflip">
+                                                    <div class="frontside">
+                                                        <div class="card">
+                                                            <a data-placement="top" data-toggle="tooltip" title="Hover me!"><img src="~/DynamicFiles/defaultheader.jpg" class="hover-animate-img  m-0 img-fluid" /></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="backside">
+                                                        <div class="card">
+                                                            <div class="card-body text-center mt-4">
+                                                                <h4 class="card-title">International Tour</h4>*@
+                                                                @*<p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>*@
+                                                                @*<ul class="list-inline">
+                                                                    <li class="list-inline-item">
+                                                                        <a class="social-icon text-xs-center link-hover" target="_blank" href="@Url.Action("International", "Home")">
+                                                                            Explore now
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    }*@
+                                </div>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+                                                    <div class="card q-width">
+                                                        @*@foreach (var e in ViewBag.Education)
+                                                        {
+                                                            try
+                                                            {*@
+                                                                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                                                                    <div class="mainflip">
+                                                                        <div class="frontside">
+                                                                            <div class="card">
+                                                                                <a data-placement="top" data-toggle="tooltip" title="Hover me!"><img src="~/Bg-img/img/eductour2_1579754810.jpg" class="hover-animate-img m-0 img-fluid" /></a>
+                                                                            </div>
+                                                                          
+                                                                        </div>
+                                                                        <div class="backside">
+                                                                            <div class="card q-width">
+                                                                                <div class="card-body text-center mt-4">
+                                                                                    <h4 class="card-title">Educational Tour</h4>
+                                                                                    @*<p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>*@
+                                                                                    <ul class="list-inline">
+                                                                                        <li class="list-inline-item">
+                                                                                            <a class="social-icon text-xs-center link-hover" style="cursor:pointer" onclick="alert('Educational tour is not available for now'); return false" @*href="@Url.Action("International", "Home")"*@>
+                                                                                                Explore now
+                                                                                            </a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            @*}
+                                                            catch (Exception)
+                                                            {
+                                                                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                                                                    <div class="mainflip">
+                                                                        <div class="frontside">
+                                                                            <div class="card">
+                                                                                <a data-placement="top" data-toggle="tooltip" title="Hover me!"><img src="~/DynamicFiles/defaultheader.jpg" class="hover-animate-img m-0 img-fluid" /></a>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="backside">
+                                                                            <div class="card">
+                                                                                <div class="card-body text-center mt-4">
+                                                                                    <h4 class="card-title">Educational Tour</h4>*@
+                                                                                    @*<p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>*@
+                                                                                    @*<ul class="list-inline">
+                                                                                        <li class="list-inline-item">
+                                                                                            <a class="social-icon text-xs-center link-hover" style="cursor:pointer" onclick="alert('Educational tour is not available for now'); return false"*@ @*href="@Url.Action("International", "Home")"*@@*>
+                                                                                                Explore now
+                                                                                            </a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            }
+                                                        }*@
+
+                                                    </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                    <div class="card FTDAD-div pb-2 pl-lg-2 pl-xl-2 pl-md-2 pr-lg-2 pr-xl-2 pr-md-2 pb-2 user-div01 ml-lg-2 ml-xl-2 ml-md-2 mt-4">
+                        <div class="card pt-2 mb-3 shadow-effect text-capitalize text-center border-top-0">
+                            <h4 class="my-font-18 p-2 font-red">Our tour packages</h4>
+                            <div class="row mt-3 p-1">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text btn-default">Show</span>
+                                        </div>
+                                        <select class="pagesize" onchange="IDisplay()" id="Idrpdwn">
+                                            <option selected="selected" value="0">All</option>
+                                            <option value="1">International</option>
+                                            <option value="2">Domestic</option>
+                                            <option value="3">Educational</option>
+                                        </select>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text btn-default">Packages</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    @*<div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Search:</span>
+                                            </div>
+                                            <input type="text" id="ESearch" class="form-control" />
+                                        </div>*@
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" id="IndexDisplay">
+                            @foreach (var item in ViewBag.IndexItems)
+                            {
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mb-4 text-center">
+                                    <div class="img-links">
+
+                                        <a href="@Url.Action("TourPackageD", "International",new { @id = item.p_id})"><img src="~/DynamicFiles/@item.img" class="hover-animate-img img-fluid hover-animate-img-2 card card-class" /></a>
+
+                                    </div>
+                                </div>
+                            }
+
+                            <input type="hidden" value="@ViewBag.IndexCounts" id="IndexCount" />
+                            <input type="hidden" value="" id="FilteredCounts" />
+                        </div>
+                        <div class="col-12 text-center mt-4" id="vMoreDiv">
+                            @*<a class="my-font-16 font-red mt-3 text-center user_links p-3" target="_blank" style="border-ra" href="@Url.Action("International", "Home")"><b>View More</b></a>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="div-accre alert">
+        <img src="~/Bg-img/sample-img/close24.png" width="70" height="30" class="close-img" data-dismiss="alert" />
+        <img src="~/Bg-img/sample-img/popup_logos.jpg" class="img-body" width="350" height="250" />
+    </div>
+    <span id="BookingError" class="my-font-14"></span>
+</div>
+
+

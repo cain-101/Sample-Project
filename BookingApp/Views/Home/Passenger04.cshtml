@@ -1,0 +1,51 @@
+﻿@model BookingApp.Models.Passengers
+
+
+<div class="uw" id="FlightsHotels">
+    <div class="row elements" id="divCon_1">
+        <div class="col-12">
+            <h4 class="font-red my-font-17"><b>Room 1</b></h4>
+        </div>
+        @using (Html.BeginForm("", "", FormMethod.Post, new { @id= "", @class = "col-12"}))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger font-red my-font-14" })
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                    <div class="form-group">
+                        @Html.LabelFor(xxx => xxx.Adults, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+                        <div class="input-group">
+                            @Html.EditorFor(xxx => xxx.Adults, new { htmlAttributes = new { @class = "form-control my-font-14", @placeholder = "Adult count(s)", @id = "_-Adults-" } })
+                            <div class="input-group-append">
+                                <div class="input-group-text my-icon my-font-14"><i class="fas fa-male"></i></div>
+                            </div>
+                        </div>
+                        @Html.ValidationMessageFor(xxx => xxx.Adults, "", new { @class = "text-danger font-red my-font-14", @id = "Errmsg" })
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                    @Html.LabelFor(xxx => xxx.Child, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+                    <div class="input-group">
+                        @Html.EditorFor(xxx => xxx.Child, new { htmlAttributes = new { @class = "form-control my-font-14", @id = "_-Childs-", @placeholder = "Child count(s)" } })
+                        <div class="input-group-append">
+                            <div class="input-group-text my-icon my-font-14"><i class="fas fa-child"></i></div>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(xxx => xxx.Child, "", new { @class = "text-danger font-red my-font-14", @id = "Errmsg1" })
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                    @Html.LabelFor(xxx => xxx.Infant, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+                    <div class="input-group">
+                        @Html.EditorFor(xxx => xxx.Infant, new { htmlAttributes = new { @class = "form-control my-font-14", @id = "_-Infants-", @placeholder = "Infant count(s)", @min = "0", @max = "10" } })
+                        <div class="input-group-append">
+                            <div class="input-group-text my-icon my-font-14"><i class="fa fa-baby"></i></div>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(xxx => xxx.Infant, "", new { @class = "text-danger font-red my-font-14", @id = "Errmsg2" })
+                </div>
+            </div> 
+        }
+    </div>
+</div>
+<h5 class="text-center my-font-14 font-red" id="_ErrorCounts"></h5>
+<span class="btn my-btn my-font-14" id="Btn-Addrooms">Add Rooms</span>

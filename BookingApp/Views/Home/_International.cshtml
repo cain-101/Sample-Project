@@ -1,0 +1,23 @@
+﻿@model PagedList.IPagedList<BookingApp.Models.InternationalDisplay>
+@foreach (var item in Model)
+{
+    <div class="col-12 col-sm-2 col-md-3 col-lg-3 col-xl-3">
+        <div class="p-3 text-left">
+            <div class="shadow-effect-2" style="border-radius: 5px">
+                <a href="@Url.Action("TourPackageD", "International",new { @id = item.p_id})">
+                    <img src="~/DynamicFiles/@item.img" class="hover-animate-img m-0 img-fluid hover-animate-img-2 card card-class" /></a>
+                    <div class="p-2 card">
+                        <p class="m-0 p-0 font-red">
+                            Package Name: <strong class="font-orange">@item.p_name</strong>
+                        </p>
+                        <p class="m-0 p-0 font-red">
+                            Price: <strong class="font-orange">  @string.Format("{0:C}", Convert.ToDecimal(@item.p_price))</strong>
+                        </p>
+                        <p class="m-0 p-0 font-red">
+                            Bedroom: <strong class="font-orange">@item.bedtype</strong>
+                        </p>
+                    </div>
+            </div>
+        </div>
+    </div>
+}

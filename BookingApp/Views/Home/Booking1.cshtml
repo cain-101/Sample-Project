@@ -1,0 +1,80 @@
+﻿@model BookingApp.Models.BookingModel1
+
+<div class="row" id="oneway">
+    @using (Html.BeginForm("", "", FormMethod.Post, new { @id = "" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="col-lg-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+            <div class="form-group">
+                @Html.LabelFor(q => q._From, htmlAttributes: new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.EditorFor(q => q._From, new { htmlAttributes = new { @class = "form-control", @id = "_form-input", @placeholder = "Enter starting location" } })
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-map-marker"></span>
+                    </span>
+                </div>
+                @Html.ValidationMessageFor(q => q._From, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-lg-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+            <div class="form-group">
+                @Html.LabelFor(q => q._To, htmlAttributes: new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.EditorFor(q => q._To, new { htmlAttributes = new { @class = "form-control", @id = "_to-input", @placeholder = "Enter destination" } })
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-map-marker"></span>
+                    </span>
+                </div>
+                @Html.ValidationMessageFor(q => q._To, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-lg-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+            <div class="form-group">
+                @Html.LabelFor(q => q._DpartDate, htmlAttributes: new { @class = "control-label" })
+                <div class="input-group date" id="_datetimepicker">
+                    @Html.EditorFor(q => q._DpartDate, new { htmlAttributes = new { @class = "form-control", @id = "_dDate", @placeholder = "Select departure date" } })
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                @Html.ValidationMessageFor(q => q._DpartDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-lg-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+            <div class="form-group">
+                @Html.LabelFor(q => q._Pssngers, htmlAttributes: new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.EditorFor(q => q._Pssngers, new { htmlAttributes = new { @class = "form-control", @id = "_pssngerCount", @disabled = "disabled", @data_toggle = "tooltip", @title = "Please click the arrow down", @data_placement = "top" } })
+                    <span class="input-group-addon" data-target="#_psngr" data-toggle="collapse">
+                        <span class="glyphicon glyphicon-chevron-down" style="cursor:pointer;z-index:2000"></span>
+                    </span>
+                </div>
+                @Html.ValidationMessageFor(q => q._Pssngers, "", new { @class = "text-danger" })
+                <div class="collapse" id="_psngr">
+                    @RenderPage("~/Views/Home/_Passengers.cshtml")
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+            <div class="form-group">
+                @Html.LabelFor(q => q._classType, htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownListFor(q => q._classType, new List<SelectListItem>()
+                   {
+                       new SelectListItem(){ Text = "Select Class", Value = "0"},
+                       new SelectListItem(){ Text = "Economy", Value = "Economy"},
+                       new SelectListItem(){ Text = "Premium Economy", Value = "Premium Economy"},
+                       new SelectListItem(){ Text = "Business", Value = "Business"},
+                   },
+                new { @class = "form-control dd-user", @id = "_classType" } )
+                @Html.ValidationMessageFor(q => q._classType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-lg-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+            <div class="form-group">
+              <button class="btn btn-primary">Book Now</button>
+            </div>
+        </div>
+
+    }
+</div>

@@ -1,0 +1,427 @@
+﻿@model BookingApp.Areas.AdminPanel.Models.TourPackage
+<div class="content">
+    <div class="container-fluid">
+        <button type="button" class="btn btn-success pull-left pl-2 pr-2" data-toggle="modal" data-target="#Category">
+            <i class="fas fa-plus-circle fa-lg"></i> Add Category
+        </button>
+        <button type="button" class="btn btn-success pull-right pl-2 pr-2" data-toggle="modal" data-target="#imgPackage">
+            <i class="fas fa-plus-circle fa-lg"></i> Add Package Image
+        </button>
+        <button type="button" class="btn btn-success pull-right pl-2 pr-2" data-toggle="modal" data-target="#myModal">
+            <i class="fas fa-plus-circle fa-lg"></i> Add Bedroom Type
+        </button>
+        <div class="card p-3">
+            <h4 class="my-font-18 text-center font-red p-2 mt-1" style="opacity:0.8">Package Informations</h4>
+            <hr class="my-border mt-0" />
+            @using (Html.BeginForm("AddPackage", "ControlPanel", FormMethod.Post, new { @id = "packageForm", @enctype = "multipart/form-data", @data_toggle = "validator", @role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger my-font-13" })
+            <div class="row mt-2">
+                <div class="col-12">
+                    <fieldset class="scheduler-border">
+                        <legend class="scheduler-border text-dark">Main Informations</legend>
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-2 col-lg-2 col-xl-2 pt-3 pb-3">
+                                <div class="input-group">
+                                    @Html.EditorFor(m => m.p_name, new { htmlAttributes = new { @class = "form-control my-font-13 my-placeholder", @placeholder = "Enter package name*", @id = "packageName" } })
+                                </div>
+                                @Html.ValidationMessageFor(m => m.p_name, "", new { @class = "text-danger my-font-13 pNameError" })
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 pt-3 pb-3">
+                                <div class="input-group">
+                                    @Html.EditorFor(m => m.p_price, new { htmlAttributes = new { @class = "form-control my-font-13 my-placeholder", @placeholder = "price*", @id = "packagePrice" } })
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <input type="radio" style="cursor:pointer" name="currency" value="peso" />is_Peso &nbsp;
+                                            <input type="radio" style="cursor:pointer" name="currency" value="dollar" />is_Dollar
+                                        </span>
+                                    </div>
+                                </div>
+                                @Html.ValidationMessageFor(m => m.p_price, "", new { @class = "text-danger my-font-13", @id = "ErrorPrice" })
+                                <span class="text-danger my-font-13" id="currencyError"></span>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 pt-1 pb-3" name="categoryMapper">
+                                <div class="input-group">
+                                    <select class="custom-select dd-user my-font-13" name="p_category" id="_category">
+                                        @* Dynamic option populating *@
+                                    </select>
+                                </div>
+                                <span class="text-danger my-font-13 catError"></span>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 pt-1 pb-3">
+                                <select id="_bedroom" name="p_bedroom" class="custom-select dd-user my-font-13">
+                                    @* Dynamic option populating *@
+                                </select>
+                                <span class="text-danger my-font-13 bedError"></span>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                        @Html.EditorFor(m => m.p_flghtdetails, new { htmlAttributes = new { @hidden = "hidden", @id = "primaryFlightDetails" } })
+                        <div>
+                            <fieldset class="scheduler-border">
+                                <legend class="scheduler-border text-dark">Flight details</legend>
+                                <div class="_element" id="travelDetails">
+                                    <div class="row p-2 _elements" id="travelDetailsDiv_1">
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            <div class="form-group">
+                                                <input type="text" placeholder="Flight details" name="flightDetails" id="flightDetails_1" class="form-control my-placeholder _flightDetails">
+                                            </div>
+                                            <span class="text-danger my-font-13 flDError"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row p-2">
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                                        <button class="btn btn-outline-success pr-2 pl-2" id="btnAdddetails"> <i class="fas fa-plus-circle fa-lg"></i> Add Details</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                        @Html.EditorFor(m => m.p_traveldate, new { htmlAttributes = new { @id = "primaryTravelDates", @hidden = "hidden" } })
+                        <div class="mb-2">
+                            <fieldset class="scheduler-border">
+                                <legend class="scheduler-border text-dark">Travel date(s)</legend>
+                                <div class="element" id="travelDates">
+                                    <div class="row p-2 elements" name="divArray" id="travelDAtesDiv_1">
+                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-2 pb-2">
+                                            <div class="form-group">
+                                                <label class="control-label my-font-13 label-color" for="fromtDate_1">From</label>
+                                                <input type="text" class="form-control datetimepicker" name="fromtDate" id="fromtDate_1" placeholder="Select date" />
+                                            </div>
+                                            <span class="text-danger my-font-13"></span>
+                                        </div>
+                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 pt-2 pb-2">
+                                            <div class="form-group">
+                                                <label class="control-label my-font-13 label-color" for="toDate_1">To</label>
+                                                <input type="text" class="form-control datetimepicker" name="toDate" id="toDate_1" placeholder="Select date" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row p-2">
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                                        <button class="btn btn-outline-success pr-2 pl-2" id="btnAddTdate"><i class="fas fa-plus-circle fa-lg"></i> Add Date(s)</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                        @Html.EditorFor(m => m.p_inclusion, new { htmlAttributes = new { @hidden = "hidden", @id = "primaryInclusion" } })
+                        <div>
+                            <fieldset class="scheduler-border">
+                                <legend class="scheduler-border text-dark">Inclusion</legend>
+                                <div class="element0" id="travelInclusion">
+                                    <div class="row p-2 elements0" id="travelInclusionDiv_1">
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            <div class="form-group">
+                                                <input type="text" placeholder="Inclusion" name="inclusion" id="inclusion_1" class="form-control my-placeholder">
+                                            </div>
+                                            <span class="text-danger my-font-13 incErr"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row p-2">
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                                        <button class="btn btn-outline-success pr-2 pl-2" id="btnInclusion"><i class="fas fa-plus-circle fa-lg"></i> Add inclusion(s)</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                        @Html.EditorFor(m => m.ItineraryName, new { htmlAttributes = new { @id = "primaryItineraryName", @hidden = "hidden" } })
+                        <div class="mt-2">
+                            <fieldset class="scheduler-border">
+                                <legend class="scheduler-border text-dark">Itinerary</legend>
+                                <div class="element" id="p_Itinerary">
+                                    <div class="row p-2 i_elements" name="Itinerary" id="Itinerary_1">
+                                        <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-2 pb-2">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control my-placeholder" id="ItineraryTitle_1" name="ItineraryTitle" placeholder="Itinerary title" />
+                                            </div>
+                                            <span class="text-danger my-font-13 itiTiError"></span>
+                                        </div>
+                                        <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 pt-2 pb-2">
+                                            <div class="form-group">
+                                                <textarea class="form-control my-placeholder" name="ItineraryDes" id="ItineraryDes_1" placeholder="Itinerary description" rows="5"></textarea>
+                                            </div>
+                                            <span class="text-danger my-font-13 itiDesError"></span>
+                                        </div>
+                                        <div class="col-12 pt-2 pb-2">
+                                            <fieldset class="scheduler-border">
+                                                <legend class="scheduler-border text-dark">Free Meals:</legend>
+                                                <label class="containers">
+                                                    Breakfast
+                                                    <input name="bmeals" id="bmeals_1" type="checkbox" value="1" />
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                <label class="containers">
+                                                    Lunch
+                                                    <input name="lmeals" id="lmeals_1" type="checkbox" value="1" />
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                <label class="containers">
+                                                    Dinner
+                                                    <input name="dmeals" id="dmeals" type="checkbox" value="1" />
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row p-2">
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                                        <button class="btn btn-outline-success pr-2 pl-2" id="btnAddItinerary"><i class="fas fa-plus-circle fa-lg"></i> Add itinerary</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                        @Html.EditorFor(m => m.p_termCondition, new { htmlAttributes = new { @hidden = "hidden", @id = "primarytermCondition" } })
+                        <div>
+                            <fieldset class="scheduler-border">
+                                <legend class="scheduler-border text-dark">Terms and Conditions</legend>
+                                <div class="elem" id="traveltermCondition">
+                                    <div class="row p-2 elem0" id="traveltermCondition_1">
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            <div class="form-group">
+                                                <input type="text" placeholder="Terms and Conditions" name="termCondition" id="termCondition_1" class="form-control my-placeholder">
+                                            </div>
+                                            <span class="text-danger my-font-13 tConError"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row p-2">
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                                        <button class="btn btn-outline-success pr-2 pl-2" id="btntermCondition"><i class="fas fa-plus-circle fa-lg"></i> Add Terms and Condition(s)</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                        @Html.EditorFor(m => m.p_exclusion, new { htmlAttributes = new { @hidden = "hidden", @id = "primaryExclusion" } })
+                        <div>
+                            <fieldset class="scheduler-border">
+                                <legend class="scheduler-border text-dark">Exclusion</legend>
+                                <div class="_elem" id="travelExclusion">
+                                    <div class="row p-2 _elem0" id="travelExclusion_1">
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            <div class="form-group">
+                                                <input type="text" placeholder="Exclusion" name="exclusion" id="exclusion_1" class="form-control my-placeholder">
+                                            </div>
+                                            <span class="text-danger my-font-13 exCError"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row p-2">
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                                        <button class="btn btn-outline-success pr-2 pl-2" id="btnExclusion"><i class="fas fa-plus-circle fa-lg"></i> Add Exclusion</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                        <div>
+                            <fieldset class="scheduler-border">
+                                <legend class="scheduler-border text-dark">Visa Requirements</legend>
+                                <div class="_elem" id="visaDiv">
+                                    <div class="row p-2 visaElement" id="visacontent_1">
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            <div class="form-group">
+                                                <input type="text" placeholder="Visa requirements" name="visarequirements" id="visa_1" class="form-control my-placeholder">
+                                            </div>
+                                            <span class="text-danger my-font-13 visaErr"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row p-2">
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                                        <button class="btn btn-outline-success pr-2 pl-2" id="btnVisa"><i class="fas fa-plus-circle fa-lg"></i> Add Visa Req.</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 mt-2">
+                        @Html.EditorFor(m => m.ItineraryName, new { htmlAttributes = new { @id = "primaryItineraryName", @hidden = "hidden" } })
+                        <div class="mt-2">
+                            <fieldset class="scheduler-border">
+                                <legend class="scheduler-border text-dark">Probable Hotel(s)</legend>
+                                <div class="element" id="p_Photels">
+                                    <div class="row p-2 pp_elements" name="photels" id="photels_1">
+                                        <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 pt-2 pb-2">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control my-placeholder" id="photelLoc_1" name="hotellocation" placeholder="Location" />
+                                            </div>
+                                            <span class="text-danger my-font-13 photelLocErr"></span>
+                                        </div>
+                                        <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 pt-2 pb-2">
+                                            <div class="form-group">
+                                                <input class="form-control my-placeholder" name="probablehotel" id="pphotels_1" placeholder="Probable hotel" />
+                                            </div>
+                                            <span class="text-danger my-font-13 pphotelsErr"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row p-2">
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                                        <button class="btn btn-outline-success pr-2 pl-2" id="btnPPhotels"><i class="fas fa-plus-circle fa-lg"></i> Add probalbe hotel(s)</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12">
+                        <div class="form-group">
+                            <button class="btn btn-success" type="submit" id="btnPackageSave">Save Package</button>
+                            <button class="btn my-font-14 font-red btn-warning" type="button" id="btnPackageLoading" disabled>
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                Processing...
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Bedroom Type -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="fas fa-window-close"></i></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="card">
+                    <h4 class="my-font-18 text-center font-red p-2 mt-1" style="opacity:0.8">Add Bedroom Type</h4>
+                    <hr class="my-border mt-0" />
+                    @RenderPage("~/Areas/AdminPanel/Views/ControlPanel/AddBedRooms.cshtml")
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"><strong>Close</strong></button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Category -->
+<div class="modal fade" id="Category">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="fas fa-window-close"></i></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="card">
+                    <h4 class="my-font-18 text-center font-red p-2 mt-1" style="opacity:0.8">Add Category</h4>
+                    <hr class="my-border mt-0" />
+                    @RenderPage("~/Areas/AdminPanel/Views/ControlPanel/AddCategory.cshtml")
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"><strong>Close</strong></button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Package Image -->
+<div class="modal fade" id="imgPackage">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="fas fa-window-close"></i></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <h4 class="my-font-18 text-center font-red p-2" style="opacity:0.8">Add Package Slide Show</h4>
+                <hr class="my-border mt-0" />
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                        <div class="input-group">
+                            @RenderPage("~/Areas/AdminPanel/Views/ControlPanel/AddImage.cshtml")
+                        </div>
+                        <span class="text-danger my-font-13 imgError"></span>
+                     </div>
+                    <div class="col-12 col-sm-6 col-md-8 col-lg-8 col-xl-8">
+                        <span class="btn btn-outline-success btn-file">
+                            <span class="fileinput-new">Select slide show images</span>
+                            <input type="file" id="files" name="files" multiple />
+                        </span>
+                        <span class="text-danger my-font-13 imgerror"></span>
+                    </div>
+
+                    <div class="col-12 overflow-auto">
+                        <div class="card shadow-effect p-2" id="slidePreview">
+                            <h4 class="my-font-18 text-center font-red p-2 mt-1" style="opacity:0.8">Slide Preview</h4>
+                            <hr class="my-border mt-0" />
+                            <div class="row overflow-auto" id="multiimg"></div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <button class="btn btn-success" type="submit" id="btnPackageImage">Save Slides</button>
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"><strong>Close</strong></button>
+            </div>
+
+        </div>
+    </div>
+</div>

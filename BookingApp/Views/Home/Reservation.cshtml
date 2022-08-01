@@ -1,0 +1,69 @@
+﻿@model BookingApp.Models.Domestic
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger my-font-13" })
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-8 col-lg-4 col-xl-4">
+            @Html.LabelFor(x => x.fullName, htmlAttributes: new { @class = "control-label label-color my-font-13" })
+            <div class="input-group">
+                @Html.EditorFor(x => x.fullName, new { htmlAttributes = new { @class = "form-control my-font-13", @placeholder = "Enter lastname" } })
+            </div>
+            @Html.ValidationMessageFor(x => x.fullName, "", new { @class = "text-danger my-font-13" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-8 col-lg-4 col-xl-4">
+            @Html.LabelFor(e => e.IdType, htmlAttributes: new { @class = "control-label label-color my-font-13" })
+            <div class="input-group">
+                @Html.DropDownListFor(e => e.IdType, new List<SelectListItem>()
+                   {
+                        new SelectListItem(){ Text = "Select Id Type", Value = "0"},
+                        new SelectListItem(){ Text = "Passport", Value = "Passport"},
+                        new SelectListItem(){ Text = "Drivers License", Value = "Drivers License"},
+                   },
+                    new { @class = "form-control my-font-13", @placeholder = "Enter lastname" })
+            </div>
+            @Html.ValidationMessageFor(e => e.IdType, "", new { @class = "text-danger my-font-13" })
+        </div>
+        <div class="col-12 col-sm-12 col-md-8 col-lg-4 col-xl-4">
+            @Html.LabelFor(e => e.IdNum, htmlAttributes: new { @class = "control-label label-color my-font-13" })
+            <div class="input-group">
+                @Html.EditorFor(e => e.IdNum, new { htmlAttributes = new { @class = "form-control my-font-13", @placeholder = "Enter Id Number" } })
+            </div>
+            @Html.ValidationMessageFor(e => e.IdNum, "", new { @class = "text-danger my-font-13" })
+        </div>
+        <div class="col-12 col-sm-12 col-md-8 col-lg-4 col-xl-4">
+            @Html.LabelFor(e => e.ReserveDateFrom, htmlAttributes: new { @class = "control-label label-color my-font-13" })
+            <div class="input-group date" id="FTDDreserveDateFrom" data-target-input="nearest">
+                @Html.EditorFor(xx => xx.ReserveDateFrom, new { htmlAttributes = new { @class = "form-control datetimepicker-input my-font-13", @data_target = "#FTDDreserveDateFrom", @id = "FTDDreserveDate", @placeholder = "Select departure date" } })
+                <div class="input-group-append" data-target="#FTDDreserveDateFrom" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fas fa-calendar-alt"></i></div>
+                </div>
+            </div>
+            @Html.ValidationMessageFor(e => e.ReserveDateFrom, "", new { @class = "text-danger my-font-13" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+            @Html.LabelFor(e => e.fullAddress, htmlAttributes: new { @class = "control-label label-color my-font-13" })
+            <div class="input-group">
+                @Html.EditorFor(e => e.fullAddress, new { htmlAttributes = new { @class = "form-control my-font-13", @placeholder = "Enter Full Address", @rows = "6" } })
+            </div>
+            @Html.ValidationMessageFor(e => e.fullAddress, "", new { @class = "text-danger my-font-13" })
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div class="input-group">
+                <button class="btn btn-primary my-font-13">Submit</button>
+            </div>
+        </div>
+    </div>
+}
+
+<h2 class="text-danger my-font-15">Note: note about reservations</h2>
+

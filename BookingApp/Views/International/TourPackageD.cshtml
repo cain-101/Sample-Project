@@ -1,0 +1,490 @@
+﻿@model  BookingApp.Models.GuestTP
+@using System.Globalization;
+<div class="index-class card pb-2">
+    <header class="seoul-header">
+        @try
+        {
+            <img src="~/DynamicFiles/@Model.headerIMG.slides" class="img-fluid dynamic-img" />
+        }
+        catch (Exception)
+        {
+            <img src="~/DynamicFiles/defaultheader.jpg" class="img-fluid dynamic-img" />
+        }
+
+
+    </header>
+    <section>
+        <div class="container">
+            <h2 class="my-font-25 bg-white mb-0 font-red p-md-5 p-sm-3 p-2 p-lg-5 p-xl-5 text-uppercase text-left" style="border-radius:5px 5px 0 0" id="titleName">@Model.p_name</h2>
+            <div class="row mt-4">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7">
+                        <fieldset class="scheduler-border">
+                            <legend class="scheduler-border text-dark">Price:</legend>
+                            <ul>
+
+                                @if (Model.currency == "peso")
+                                {
+                                    <li class="font-red">
+                                        @string.Format(CultureInfo.GetCultureInfo("en-PH"),
+                                 "{0:c}", Convert.ToDecimal(@Model.p_price)) / pax(@Model.bedtype)
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="font-red">
+                                @string.Format("{0:C}", Convert.ToDecimal(@Model.p_price))/ pax(@Model.bedtype)
+                            </li>
+                        }
+
+
+                            </ul>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    @if (Model.guestTDs.Count > 0)
+                    {
+                        <fieldset class="scheduler-border">
+                            <legend class="scheduler-border text-dark"><i class="far fa-calendar-alt" style='font-size:24px;color:darkorange'></i> Departure Dates:</legend>
+                            <ul>
+                                @foreach (var item in Model.guestTDs)
+                                {
+                                    <li class="font-red">
+                                        @Html.DisplayFor(x => item.dates)
+                                    </li>
+
+                                }
+                            </ul>
+                        </fieldset>
+                    }
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7">
+                    <div class="card shadow-effect">
+                        <div class="overflow-hidden">
+                            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+                                <!-- Indicators -->
+                                <ul class="carousel-indicators">
+                                    @for (var i = 0; i < @Model.guestIMGs.Count; i++)
+                                    {
+                                        if (i == 0)
+                                        {
+                                            <li data-target="#myCarousel" data-slide-to="@i" class="active"></li>
+                                        }
+                                        else
+                                        {
+                                            <li data-target="#myCarousel" data-slide-to="@i"></li>
+                                        }
+
+                                    }
+
+                                </ul>
+
+                                <!-- The slideshow -->
+                                <div class="carousel-inner" role="listbox">
+                                    @{ var counter = 0; }
+                                    @foreach (var item in Model.guestIMGs)
+                                    {
+
+                                        if (counter == 0)
+                                        {
+                                            <div class="carousel-item active">
+                                                <img src="~/DynamicFiles/@Html.DisplayFor(x => item.slides)" class="img-fluid hover-animate-img">
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="carousel-item">
+                                                <img src="~/DynamicFiles/@Html.DisplayFor(x => item.slides)" class="img-fluid hover-animate-img">
+                                            </div>
+                                        }
+
+                                        counter++;
+                                    }
+                                </div>
+
+                                <!-- Left and right controls -->
+                                <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-3">
+                        <ul class="nav nav-tabs font-red modal-ul">
+                            @if (Model.guestINCs.Count > 0)
+                            {
+                                <li class="nav-item modal-li">
+                                    <a class="nav-link user_links active my-font-15" id="link-inclusion0">Inclusion</a>
+                                </li>
+                            }
+                            @if (Model.guestITIs.Count > 0)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link user_links my-font-15" id="link-itinerary0">Itinerary</a>
+                                </li>
+                            }
+                            @if (Model.guestCONs.Count > 0)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link user_links my-font-15" id="link-terms0">Terms and Conditions</a>
+                                </li>
+                            }
+                            @if (Model.guestEXCs.Count > 0)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link user_links my-font-15" id="link-exclusion0">Exclusion</a>
+                                </li>
+                            }
+                            @if (Model.guestVIs.Count > 0)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link user_links my-font-15" id="link-visareq0">Visa Requirements</a>
+                                </li>
+                            }
+                            @if (Model.guestFLIs.Count > 0)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link user_links my-font-15" id="link-details0">Flight Details</a>
+                                </li>
+                            }
+                            @if (Model.photels.Count > 0)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link user_links my-font-15" id="link-hotels0">Hotels</a>
+                                </li>
+                            }
+                        </ul>
+                        @if (Model.guestINCs.Count > 0)
+                        {
+                            <div class="text-left package-div container mt-2" id="inclusion_div0">
+                                <h2 class="my-font-15">Tour inclusions</h2>
+                                <ul class="my-font-14">
+                                    @foreach (var item in Model.guestINCs)
+                                    {
+                                        <li class="pt-1 pb-1">
+                                            @Html.DisplayFor(x => item.name)
+                                        </li>
+
+                                    }
+                                </ul>
+                            </div>
+                        }
+                        <div class="text-left container mt-2 pb-2" id="itinerary_div0">
+                            <div id="accordion">
+                                @foreach (var item in Model.guestITIs)
+                                {
+                                    string str = "collapse" + item.it_id;
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <a class="card-link my-font-14 font-orange user_links" data-toggle="collapse" href="#@str">
+                                                @Html.DisplayFor(x => item.name)
+                                            </a>
+                                        </div>
+                                        <div id="@str" class="collapse" data-parent="#accordion">
+                                            <div class="card-body text-color-8 my-font-13">
+                                                @if (item.description != "")
+                                                {
+                                                    var line = item.description.Split('/');
+                                                    foreach (var desline in line)
+                                                    {
+                                                        <p class="p-0 mb-1">@desline</p>
+                                                    }
+                                                }
+                                                @*@Html.DisplayFor(x => item.description)*@
+                                                @if (item.bmeal != 0 || item.lmeal != 0 || item.dmeal != 0)
+                                                {
+                                                    <div class="mt-2 pb-2 pt-2">
+                                                        <fieldset class="scheduler-border">
+                                                            <legend class="scheduler-border text-dark"><i class='fas fa-utensils' style='font-size:20px;color:darkorange'></i> Free Meals:</legend>
+                                                            <ul>
+                                                                @if (item.bmeal == 1)
+                                                                {
+                                                                    <li>Breakfast</li>
+                                                                }
+                                                                @if (item.lmeal == 1)
+                                                                {
+                                                                    <li>Lunch</li>
+                                                                }
+                                                                @if (item.dmeal == 1)
+                                                                {
+                                                                    <li>Dinner</li>
+                                                                }
+                                                            </ul>
+                                                        </fieldset>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div class="text-left container mt-2" id="optional_div0">
+                            <h2 class="my-font-14 text-color-8 mt-1">Terms and Conditions</h2>
+                            <ul class="my-font-13 text-color-8">
+                                @foreach (var item in Model.guestCONs)
+                                {
+                                    <li class="pt-1 pb-1">
+                                        @Html.DisplayFor(x => item.name)
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                        <div class="text-left container mt-2" id="exclusion_div0">
+                            <h2 class="my-font-14 text-color-8 mt-1">Exclusions</h2>
+                            <ul class="my-font-13 text-color-8">
+                                @foreach (var item in Model.guestEXCs)
+                                {
+                                    <li class="pt-1 pb-1">
+                                        @Html.DisplayFor(x => item.name)
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                        <div class="text-left container mt-2" id="flightDetails_div0">
+                            <h2 class="my-font-14 text-color-8 mt-1">Flight Details</h2>
+                            <ul class="my-font-13 text-color-8">
+                                @foreach (var item in Model.guestFLIs)
+                                {
+                                    <li class="pt-1 pb-1">
+                                        @Html.DisplayFor(x => item.name)
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                        <div class="text-left container mt-2" id="visareq_div0">
+                            <h2 class="my-font-14 text-color-8 mt-1">Visa Requirements</h2>
+                            <ul class="my-font-13 text-color-8">
+                                @foreach (var item in Model.guestVIs)
+                                {
+                                    <li class="pt-1 pb-1">
+                                        @Html.DisplayFor(x => item.name)
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                        <div class="text-left container mt-2" id="hotels_div0">
+                            <h2 class="my-font-14 text-color-8 mt-1">Hotels</h2>
+                            <ul class="my-font-13 text-color-8">
+                                @foreach (var item in Model.photels)
+                                {
+                                    <li class="pt-1 pb-1">
+                                        @Html.DisplayFor(x => item.ph_loc)
+                                        <ul>
+                                            <li class="pt-1 pb-1">
+                                                @Html.DisplayFor(x => item.ph_phtel)
+                                            </li>
+                                        </ul>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
+                    <div class="card shadow-effect">
+                        <ul class="nav nav-tabs font-red modal-ul pt-2 pl-2 pr-2">
+                            <li class="nav-item modal-li">
+                                <a class="nav-link user_links active my-font-15" id="KnsaiBNbtn">Book this tour</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link user_links my-font-15" id="KnsaiCUbtn">Contact Us</a>
+                            </li>
+                        </ul>
+                        <div class="p-2" id="KnsaiBNdiv">
+                            <form action="@Url.Action("BookedTP", "Home")" method="post" id="bookTP">
+                                <div class="row p-2">
+                                    <div class="col-12 text-left">
+                                        <div class="input-group">
+                                            <input name="fname" id="fname" type="text" class="form-control my-font-13 mb-2 mt-2" placeholder="Enter first name*" required />
+                                        </div>
+                                        <span class="text-danger my-font-13 fnameError"></span>
+                                    </div>
+                                    <div class="col-12 text-left">
+                                        <div class="input-group">
+                                            <input name="lname" id="lname" type="text" class="form-control my-font-13 mb-2 mt-2" placeholder="Enter last name*" required />
+                                        </div>
+                                        <span class="text-danger my-font-13 lnameError"></span>
+                                    </div>
+                                    <div class="col-12 text-left">
+                                        <div class="input-group">
+                                            <input name="mname" id="mname" type="text" class="form-control my-font-13 mb-2 mt-2" placeholder="Enter middle name" />
+                                        </div>
+                                        <span class="text-danger my-font-13 mnameError"></span>
+                                    </div>
+                                    <div class="col-12 text-left">
+                                        <div class="input-group">
+                                            <input name="contactNo" id="contactNo" type="text" class="form-control my-font-13 mb-2 mt-2" placeholder="Enter mobile number*" required />
+                                        </div>
+                                        <span class="text-danger my-font-13 phoneError"></span>
+                                    </div>
+                                    <div class="col-12 text-left">
+                                        <div class="input-group">
+                                            <input name="landlineNo" id="landlineNo" type="text" class="form-control my-font-13 mb-2 mt-2" placeholder="Enter Landline number" />
+                                        </div>
+                                        <span class="text-danger my-font-13 telError"></span>
+                                    </div>
+                                    <div class="col-12 text-left">
+                                        <div class="input-group">
+                                            <input name="emailAdd" id="emailAdd" type="email" class="form-control my-font-13 mb-2 mt-2" placeholder="Enter email*" required />
+                                        </div>
+                                        <span class="text-danger my-font-13 emailError"></span>
+                                    </div>
+                                    <div class="col-12 text-left">
+                                        <div class="input-group">
+                                            <textarea class="form-control my-font-13 mb-2 mt-2" id="fullAdress" name="fullAdress" placeholder="Enter Full Address*" required rows="3"></textarea>
+                                        </div>
+                                        <span class="text-danger my-font-13 fullAdressError"></span>
+                                    </div>
+
+                                    <div class="col-12 text-left">
+                                        <div class="input-group mb-2 mt-2 redborder" id="i-dprtureDate" data-target-input="nearest">
+                                            <input name="IdprtDate" type="text" class="form-control my-font-13" placeholder="Enter departure date*" id="IdprtDate" required />
+                                            <div class="input-group-append" data-target="#i-dprtureDate" data-toggle="datetimepicker">
+                                                <div id="calendarAppend" class="input-group-text my-btn my-font-13"><i class="fas fa-calendar-alt"></i></div>
+                                            </div>
+                                        </div>
+                                        <span class="text-danger my-font-13 IdprtDateError"></span>
+                                    </div>
+                                    <div class="col-12 text-left">
+                                        <div class="card mb-2 mt-2" id="guest-counter">
+                                            <div class="row p-2" id="guest">
+                                                <div class='col-4 text-left'>
+                                                    <label class='control-label my-font-13 label-color' for='guestAdult'>Adult</label>
+                                                    <div class='input-group'>
+                                                        <input type='text' class='form-control my-font-13' name='guestAdult' id="guestAdult" placeholder='Enter adult count' />
+                                                    </div>
+                                                    <span class='text-danger my-font-13' id="guestAdultError"></span>
+                                                </div>
+                                                <div class='col-4 text-left'>
+
+                                                    <label class='control-label my-font-13 label-color' for='guestChild'>Child</label>
+                                                    <div class='input-group'>
+
+                                                        <input type='text' class='form-control my-font-13' name='guestChild' id="guestChild" placeholder='Enter child count' />
+                                                    </div>
+                                                    <span class='text-danger my-font-13' id="guestChildError"></span>
+                                                </div>
+                                                <div class='col-4 text-left'>
+
+                                                    <label class='control-label my-font-13 label-color' for='guestInfant'>Infant</label>
+                                                    <div class='input-group'>
+
+                                                        <input type='text' class='form-control my-font-13' name='guestInfant' id="guestInfant" placeholder='Enter infant count' />
+                                                    </div>
+                                                    <span class='text-danger my-font-13' id="guestInfantError"></span>
+                                                </div>
+                                                <div class="col-12 text-center">
+                                                    <span class="text-danger my-font-13" id="pssCounts"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="text-danger my-font-13 countsError"></span>
+                                    </div>
+                                    <div class="col-12 text-left">
+                                        <div class="input-group">
+                                            <textarea name="concern" id="concern" class="form-control my-font-13 mb-2 mt-2" placeholder="Other concerns" rows="6"></textarea>
+                                        </div>
+                                        <span class="text-danger my-font-13 concernError"></span>
+                                        <input type="hidden" id="guestCount" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-12 text-right">
+                                        <button type="submit" class="btn my-btn my-font-13" id="btnBookingTP">Inquire Now</button>
+                                        <button class="btn my-font-14" type="button" id="btnPackageInquire" disabled>
+                                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                            Sending...
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="p-2" id="KnsaiCUdiv">
+                            <ul class="my-font-13 text-color-8">
+                                <li class="pt-1 pb-1">
+                                    <strong>Tel.</strong>
+                                    <ul>
+                                        <li>02-917 6187</li>
+                                        <li>02 917 6190</li>
+                                    </ul>
+                                </li>
+                                <li class="pt-1 pb-1">
+                                    <strong>Mobile</strong>
+                                    <ul>
+                                        <li>0975 260 2261</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <strong>Email</strong>
+                                    <ul>
+                                        <li>MhylesTravel@gmail.com</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container p-4">
+            <div class="row pt-2">
+                <div class="col-12">
+                    <div class="card">
+                        <h3 class="text-center p-5">Related Packages</h3>
+                        <div class="swiper-container bg-transparent">
+                            <div class="swiper-wrapper">
+                                @foreach (var row in ViewBag.PD)
+                                {
+                                    <div class="swiper-slide text-center p-0 col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                                        <div class="card my-card">
+                                            <div class="my-header-card">
+                                                <a href="@Url.Action("TourPackageD", "International",new { @id = row.p_id})">
+                                                    <img src="~/DynamicFiles/@row.img" class="hover-animate-img hover-animate-img-2 card card-class" />
+                                                </a>
+                                            </div>
+                                            <div class="my-card-body card">
+                                                <div class="my-card-caption">
+                                                    <h3 class="my-font-18">@row.p_name</h3>
+                                                    @if (row.currency == "peso")
+                                                    {
+                                                        <p class="p-0 m-0 my-font-16">
+                                                            @string.Format(CultureInfo.GetCultureInfo("en-PH"),
+                                                     "{0:c}", Convert.ToDecimal(row.p_price))
+                                                    </p>
+                                                }
+                                                else
+                                                {
+                                                <p class="p-0 m-0 my-font-16">
+
+                                                    Price:  @string.Format("{0:C}", Convert.ToDecimal(row.p_price))
+                                                </p>
+                                            }
+                                                
+                                                    <p class="p-0 m-0 my-font-16">
+                                                        Bedroom: @row.bedtype
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+

@@ -1,0 +1,130 @@
+﻿@model BookingApp.Models.BookingModel
+
+<section class="p-0 mt-5" id="booking-div">
+    <div class="p-0 m-0" id="booking-Container">
+        <h2 class="text-center" style="color:white;cursor:pointer" title="Click me to toggle the booking form" data-toggle="collapse" data-target="#bookingCollapse">Book Now</h2>
+        <div class="collapse" id="bookingCollapse">
+            <div class="navbar" style="margin-bottom:0!important;background-color: transparent;border:none;border-radius:0 !important">
+                <ul class="nav navbar-nav">
+                    <li class="toggle-active" id="flights">
+                        <a class="nav-link">
+                            <i class='fas fa-plane'></i> &nbsp;<b>Flights</b>
+                        </a>
+                    </li>
+                    <li class="li-class" id="flightandhotelbtn">
+                        <a class="nav-link">
+                            <i class='fas fa-plane'></i> &nbsp;<i class='fas fa-plus'></i> &nbsp;<i class='fas fa-bed'></i> &nbsp;<b>Flights + Hotels</b>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="_flight" class="navbar" style="margin-bottom:0!important;background-color: transparent;border:none">
+                <ul class="nav navbar-nav">
+                    <li class="toggle-actives" id="roundtrip">
+                        <a class="nav-link"><b>Round Trip</b></a>
+                    </li>
+                    <li class="li-class" id="oneWay">
+                        <a class="nav-link"><b>One Way</b></a>
+                    </li>
+                    <li class="li-class" id="multiCity">
+                        <a class="nav-link"><b>Multi City</b></a>
+                    </li>
+                </ul>
+            </div>
+            @*<hr />*@
+            @RenderPage("~/Views/Home/FlightsAndHotels.cshtml")
+            @RenderPage("~/Views/Home/Booking2.cshtml")
+            @RenderPage("~/Views/Home/Booking1.cshtml")
+            <div class="row" id="roundTrip">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.From, htmlAttributes: new { @class = "control-label" })
+                            <div class="input-group">
+                                @Html.EditorFor(model => model.From, new { htmlAttributes = new { @class = "form-control", @id = "from-input", @placeholder = "Enter starting location" } })
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-map-marker"></span>
+                                </span>
+                            </div>
+                            @Html.ValidationMessageFor(model => model.From, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.To, htmlAttributes: new { @class = " control-label" })
+                            <div class="input-group">
+                                @Html.EditorFor(model => model.To, new { htmlAttributes = new { @class = "form-control", @id = "to-input", @placeholder = "Enter destination" } })
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-map-marker"></span>
+                                </span>
+                            </div>
+                            @Html.ValidationMessageFor(model => model.To, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DpartDate, htmlAttributes: new { @class = "control-label" })
+                            <div class="input-group date" id="datetimepicker0">
+                                @Html.EditorFor(model => model.DpartDate, new { htmlAttributes = new { @class = "form-control", @id = "dDate", @placeholder = "Select departure date" } })
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                            @Html.ValidationMessageFor(model => model.DpartDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.RturnDate, htmlAttributes: new { @class = "control-label" })
+                            <div class="input-group date" id="datetimepicker1">
+                                @Html.EditorFor(model => model.RturnDate, new { htmlAttributes = new { @class = "form-control datepicker", @id = "rDate", @placeholder = "Select return date" } })
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                            @Html.ValidationMessageFor(model => model.RturnDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Pssngers, htmlAttributes: new { @class = "control-label" })
+                            <div class="input-group">
+                                @Html.EditorFor(model => model.Pssngers, new { htmlAttributes = new { @class = "form-control", @id = "pssngerCount", @disabled = "disabled", @data_toggle = "tooltip", @title = "Please click the arrow down", @data_placement = "top" } })
+                                <span class="input-group-addon" data-target="#psngr" data-toggle="collapse">
+                                    <span class="glyphicon glyphicon-chevron-down" style="cursor:pointer;z-index:2000"></span>
+                                </span>
+                            </div>
+                            @Html.ValidationMessageFor(model => model.Pssngers, "", new { @class = "text-danger" })
+                            <div class="collapse" id="psngr">
+                                @RenderPage("~/Views/Home/Passengers.cshtml")
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.classType, htmlAttributes: new { @class = "control-label" })
+                            @Html.DropDownListFor(model => model.classType, new List<SelectListItem>()
+                                {
+                                    new SelectListItem(){ Text = "Select Class", Value = "0"},
+                                    new SelectListItem(){ Text = "Economy", Value = "Economy"},
+                                    new SelectListItem(){ Text = "Premium Economy", Value = "Premium Economy"},
+                                    new SelectListItem(){ Text = "Business", Value = "Business"},
+                                },
+                            new { @class = "form-control dd-user", @id = "classTypes" } )
+                            @Html.ValidationMessageFor(model => model.classType, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                        <div class="form-group">
+                            <button class="btn btn-primary">Book Now</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+

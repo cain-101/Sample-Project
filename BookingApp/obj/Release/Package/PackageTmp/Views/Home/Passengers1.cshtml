@@ -1,0 +1,46 @@
+﻿@model BookingApp.Models.Passengers
+
+
+<div class="uw">
+    <div class="row">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Adults, htmlAttributes: new { @class = "control-label" })
+                    <div class="input-group">
+                        @Html.EditorFor(x => x.Adults, new { htmlAttributes = new { @class = "form-control", @placeholder = "Adult count(s)", @id = "Adults", @pattern = "[0-9]*" } })
+                        <span class="input-group-addon">
+                            <span class="fas fa-male"></span>
+                        </span>
+                    </div>
+                    @Html.ValidationMessageFor(x => x.Adults, "", new { @class = "text-danger", @id = "_Errmsg" })
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                @Html.LabelFor(x => x.Child, htmlAttributes: new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.EditorFor(x => x.Child, new { htmlAttributes = new { @class = "form-control", @id = "Children", @placeholder = "Child count(s)" } })
+                    <span class="input-group-addon">
+                        <span class="fas fa-child"></span>
+                    </span>
+                </div>
+                @Html.ValidationMessageFor(x => x.Child, "", new { @class = "text-danger", @id = "_Errmsg1" })
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                @Html.LabelFor(x => x.Infant, htmlAttributes: new { @class = "control-label" })
+                <div class="input-group">
+                    @Html.EditorFor(x => x.Infant, new { htmlAttributes = new { @class = "form-control", @id = "Infants", @placeholder = "Infant count(s)", @min = "0", @max = "10" } })
+                    <span class="input-group-addon">
+                        <span class="fa fa-baby"></span>
+                    </span>
+                </div>
+                @Html.ValidationMessageFor(x => x.Infant, "", new { @class = "text-danger", @id = "_Errmsg2" })
+            </div>
+        }
+    </div>
+</div>
+
+

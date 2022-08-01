@@ -1,0 +1,192 @@
+﻿<input type="hidden" id="viewBagID" value="@ViewBag.PId" />
+<div class="content">
+    <div class="container-fluid">
+        <fieldset class="card p-2">
+            <legend class="scheduler-border text-dark" id="packageName"></legend>
+            <div class="p-1">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <div class="row" id="imgContent">
+                            @* dynamic img rendered here *@
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <div class="row p-3">
+                            <div class="col-12">
+                                <fieldset class="scheduler-border">
+                                    <legend class="scheduler-border text-dark"> Status:</legend>
+                                    <ul>
+                                        <li id="liStatus" style="color:rgb(163, 137, 23)">
+                                            @* Dynamic values render here.. *@
+                                        </li>
+                                    </ul>
+                                </fieldset>
+                            </div>
+                            <div class="col-12">
+                                <fieldset class="scheduler-border">
+                                    <legend class="scheduler-border text-dark">Price:</legend>
+                                    <ul>
+                                        <li id="liPrice" style="color:rgb(163, 137, 23);list-style:none">
+                                            @* Dynamic values render here.. *@
+                                        </li>
+                                    </ul>
+                                </fieldset>
+                            </div>
+                            <div class="col-12">
+                                <fieldset class="scheduler-border">
+                                    <legend class="scheduler-border text-dark"><i class="far fa-calendar-alt" style='font-size:24px;color:darkorange'></i> Departure Dates:</legend>
+                                    <ul id="_tDates">
+                                        @* dynamic values render here *@
+                                    </ul>
+                                </fieldset>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card mt-3">
+                            <ul class="nav nav-pills nav-pills-info p-2" id="ulLinks">
+                                @* dynamic values rendered here *@
+                            </ul>
+                            <div id="incDiv">
+                                <div class="text-left package-div container mt-2" id="inclusion_div0">
+                                    <h4 class="my-font-15">Tour Inclusions</h4>
+                                    <div class="my-font-14 pl-2" id="incContent">
+                                        @* dynamic values rendered here *@
+                                    </div>
+                                </div>
+
+                                <div class="text-left container mt-2 pb-2" id="itinerary_div0">
+                                    <h4 class="my-font-15">Itinerary</h4>
+                                    <div id="accordion">
+                                        @* dynamic values rendered here *@
+                                    </div>
+                                </div>
+                                <div class="text-left container mt-2" id="optional_div0">
+                                    <h4 class="my-font-14 text-color-8 mt-1">Terms and Conditions</h4>
+                                    <div class="my-font-13 text-color-8" id="tacContent">
+                                        @* dynamic values rendered here *@
+                                    </div>
+                                </div>
+                                <div class="text-left container mt-2" id="exclusion_div0">
+                                    <h4 class="my-font-14 text-color-8 mt-1">Exclusions</h4>
+                                    <div class="my-font-13 text-color-8" id="excContent">
+                                        @* dynamic values rendered here *@
+                                    </div>
+                                </div>
+                                <div class="text-left container mt-2" id="flightDetails_div0">
+                                    <h4 class="my-font-14 text-color-8 mt-1">Flight Details</h4>
+                                    <div class="my-font-13 text-color-8" id="fliContent">
+                                        @* dynamic values rendered here *@
+                                    </div>
+                                </div>
+                                <div class="text-left container mt-2" id="visareq_div0">
+                                    <h4 class="my-font-14 text-color-8 mt-1">Visa Requirements</h4>
+                                    <div class="my-font-13 text-color-8" id="visContent">
+                                        @* dynamic values rendered here *@
+                                    </div>
+                                </div>
+                                <div class="text-left container mt-2" id="hotels_div0">
+                                    <h4 class="my-font-14 text-color-8 mt-1">Hotels</h4>
+                                    <div class="my-font-13 text-color-8" id="hotContent">
+                                        @* dynamic values rendered here *@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</div>
+
+
+
+
+<!-- The Modal Tdates -->
+<div class="modal fade" id="TdatesModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Updating depature dates</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form method="post">
+                    <div class="row" name="updateTdatesDiv">
+                        <span id="UTdatesID">
+
+                        </span>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" id="fromD">
+
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" id="toD">
+
+                        </div>
+                        <div class="col-12">
+                            <button id="updateTdates" class="btn btn-success pull-right">Update</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- The Modal Tdates -->
+<div class="modal fade" id="ImgModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Slide updating</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="row" name="updateImgDiv">
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                            <span id="imgId">
+
+                            </span>
+                            <span class="btn btn-outline-success btn-file">
+                                <span class="fileinput-new">Select slide show images</span>
+                                <input type="file" id="ufiles" name="ufiles" />
+                            </span>
+                            <span class="text-danger my-font-13 imgerror"></span>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6" id="imgPreview">
+                            
+                        </div>
+                        <div class="col-12">
+                            <button id="updateImg" class="btn btn-success pull-right">Update</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,105 @@
+﻿@using System.Globalization;
+<div class="index-class card pb-2">
+    <header class="masthead" id="headmaster">
+        <div id="demo" class="carousel slide" data-ride="carousel">
+
+            <div class="carousel-inner">
+                @foreach (var r in ViewBag.IndesSS)
+                {
+                    <div class="carousel-item item active">
+                        <img src="~/DynamicFiles/@r.is_img" class="img-min-h img-fluid">
+                    </div>
+                }
+            </div>
+        </div>
+    </header>
+
+
+    <div class="container-fluid text-center bg-white mt-1" id="idivpage">
+        <div class="shadow-effect user-div01 mb-2 mt-0 pb-2 large-padding">
+            <h2 class="my-font-25 bg-white mb-0 font-red p-md-4 p-sm-3 p-2 p-lg-4 p-xl-4 text-uppercase text-center" style="border-radius:5px 5px 0 0">International</h2>
+            <p class="font-orange my-font-16 mb-5 pb-3">List of our International tour packages</p>
+            <div class="row mt-3">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text btn-default">Show</span>
+                        </div>
+                        <select class="pagesize" onchange="Display()" id="drpdwn">
+                            <option selected="selected" value="12">12</option>
+                            <option value="24">24</option>
+                            <option value="36">36</option>
+                            <option value="48">48</option>
+                            <option value="60">60</option>
+                        </select>
+                        <div class="input-group-append">
+                            <span class="input-group-text btn-default">entries</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Search:</span>
+                        </div>
+                        <input type="text" id="Search" placeholder="package name, price, bedroom type" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <hr class="my-border mt-1 mb-sm-1 mb-1 mb-lg-2 mb-xl-2 mb-md-2" />
+            <div class="p-2">
+                <div class="row p-xl-5 p-lg-5 p-md-5 p-sm-2 text-center" id="pageCallback">
+
+                    @foreach (var item in ViewBag.IDp)
+                    {
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 text-center">
+                            <div class="card my-card">
+                                <div class="my-header-card">
+                                    <a href="@Url.Action("TourPackageD", "International",new { @id = item.p_id})">
+                                        <img src="~/DynamicFiles/@item.img" class="hover-animate-img hover-animate-img-2 card card-class" />
+                                    </a>
+                                </div>
+                                <div class="my-card-body card">
+                                    <div class="my-card-caption">
+                                        <h3 class="my-font-18">@item.p_name</h3>
+                                        @if (item.currency == "peso")
+                                        {
+                                            <p class="p-0 m-0 my-font-16">
+                                                Price: @string.Format(CultureInfo.GetCultureInfo("en-PH"),
+                                         "{0:c}", Convert.ToDecimal(item.p_price))
+                                            </p>
+                                        }
+                                        else
+                                        {
+                                            <p class="p-0 m-0 my-font-16">
+                                                Price: @string.Format("{0:C}", Convert.ToDecimal(item.p_price))
+                                            </p>
+                                        }
+                                        <p class="p-0 m-0 my-font-16">
+                                            Bedroom: @item.bedtype
+                                        </p>
+                                        <fieldset class="scheduler-border">
+                                            <legend class="scheduler-border text-dark"><i style='font-size:16px;color:#ff6a00' class="fas fa-calendar-alt"></i> Travel Dates</legend>
+                                            <ul class="pt-0 pb-0">
+                                                @for (int d = 0; d < item._Dates.Count; d++)
+                                                {
+                                                    <li class="my-font-13">@item._Dates[d].otDates</li>
+                                                }
+                                            </ul>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <input type="hidden" value="@ViewBag.Counts" id="counts" />
+                <div class="pages">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      Philippines Best Travel And Tours | Mhyles Travel
+    </title>
+    <link rel="icon" href="~/Bg-img/travel-logo-900.png" />
+    <meta name="description" content="The Best and Newest Travel And Tours Company in The Philippines" />
+    <meta name="keywords" content="Travel And Tours, Travel Safely, Cheapest Travel Cost" />
+    <meta name="author" content="MHYLES Corporation" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    @Scripts.Render("~/styles/fontawesome-kit")
+    @Styles.Render("~/styles/tempusdominus-4")
+    @Styles.Render("~/styles/bootstrap-4")
+    @Styles.Render("~/styles/swiper")
+    @Styles.Render("~/styles/site")
+   @Styles.Render("~/styles/pageList")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="sticky-top" id="navMaxwidth">
+        <nav class="navbar navbar-expand-lg user-collapse bg-light user-nav">
+            <div style="z-index:2000;width:20px;margin-right:-70px"></div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <ul class="navbar-nav ml-auto user-ul mt-2 pr-0" style="margin-right:150px;">
+                <li class="nav-item user-item m-1">
+                    @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link font-weight-bold my-font-15" })
+                </li>
+                <li class="nav-item user-item m-1">
+                    @Html.ActionLink("Domestic", "Domestic", "Home", null, new { @class = "nav-link font-weight-bold my-font-15"@*, @onclick = "alert('Domestic tour is not available for now'); return false"*@})
+                </li>
+                <li class="nav-item user-item m-1">
+                    @Html.ActionLink("International", "International", "Home", null, new { @class = "nav-link font-weight-bold my-font-15" })
+                </li>
+                <li class="nav-item user-item m-1">
+                    @Html.ActionLink("D.I.Y", "Diy", "Home", null, new { @class = "nav-link font-weight-bold my-font-15", @onclick = "alert('DIY is not available for now'); return false" })
+                </li>
+            </ul>
+            <ul class="navbar-nav mr-auto user-ul mt-2" style="margin-left:30px;">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li class="nav-item user-item m-1">
+                    @Html.ActionLink("Educational Tour", "EduTour", "Home", null, new { @class = "nav-link font-weight-bold my-font-15", @onclick = "alert('Educational tour is not available for now'); return false" })
+                </li>
+                <li class="nav-item user-item m-1">
+                    @Html.ActionLink("Consult", "Consult", "Home", null, new { @class = "nav-link font-weight-bold my-font-15", @onclick = "alert('Link temporarily closed'); return false" })
+                </li>
+                <li class="nav-item user-item m-1">
+                    @Html.ActionLink("About Us", "About", "Home", null, new { @class = "nav-link font-weight-bold my-font-15", @*@onclick = "alert('Link temporarily closed'); return false"*@ })
+                </li>
+            </ul>
+        </nav>
+        <div class="image-holder bg-light user-collapse">
+            <img src="~/Bg-img/nav-img.png" class="img-fluid p-0 m-0 user-img user-collapse" />
+        </div>
+
+        <nav class="navbar user-expand navbar-light user-nav" id="mycollapse">
+            <a href="@Url.Action("Index","Home")" title="Home page" class="navbar-brand"><img src="~/Bg-img/travel-logo-900.png" height="45" /></a>
+            <button class="navbar-toggler my-font-15" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto user-ul text-center">
+                    <li class="nav-item user-item">
+                        @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link font-weight-bold my-font-15" })
+                    </li>
+                    <li class="nav-item user-item">
+                        @Html.ActionLink("Domestic", "Domestic", "Home", null, new { @class = "nav-link font-weight-bold my-font-15"@*, @onclick = "alert('Domestic tour is not available for now'); return false"*@})
+                    </li>
+                    <li class="nav-item user-item">
+                        @Html.ActionLink("International", "International", "Home", null, new { @class = "nav-link font-weight-bold my-font-15" })
+                    </li>
+                    <li class="nav-item user-item">
+                        @Html.ActionLink("D.I.Y", "Diy", "Home", null, new { @class = "nav-link font-weight-bold my-font-15", @onclick = "alert(''DIY is not available for now'); return false" })
+                    </li>
+                    <li class="nav-item user-item">
+                        @Html.ActionLink("Educational Tour", "EduTour", "Home", null, new { @class = "nav-link font-weight-bold my-font-15", @onclick = "alert('Educational tour is not available for now'); return false" })
+                    </li>
+                    <li class="nav-item user-item">
+                        @Html.ActionLink("Consult", "Consult", "Home", null, new { @class = "nav-link font-weight-bold my-font-15", @onclick = "alert('Link closed'); return false" })
+                    </li>
+                    <li class="nav-item user-item">
+                        @Html.ActionLink("About Us", "About", "Home", null, new { @class = "nav-link font-weight-bold my-font-15" })
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    </div>
+    <div id="UniVersalH"></div>
+    @RenderBody()
+
+    <div class="bottom-btn btn-warning rounded" id="showBTN">
+            @*<div class="mail p-2">
+                <a target="_blank" href="https://www.facebook.com/Mirakel-1903537549886132/"><i class="fab fa-facebook-messenger fa-3x font-red my-font-18"></i></a>
+            </div>*@
+
+            <div class="arrow-up p-2">
+                <a id="page-top" class="text-white">
+                    <i class="fas fa-angle-double-up" style="cursor:pointer"></i>
+                </a>
+            </div>
+        </div>
+
+    <footer class="p-0 m-0">
+        <h2 class="my-font-25 mt-5 mb-0 font-red p-md-4 p-sm-3 p-2 p-lg-4 p-xl-4 text-uppercase text-center" style="border-radius:5px 5px 0 0">Our office location</h2>
+        @*<div class="mapouter">
+            <div class="gmap_canvas"><iframe id="gmap_canvas" src="https://maps.google.com/maps?q=benlor&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.utilitysavingexpert.com">Utility Saving Expert</a></div>
+            <style>
+                .mapouter {
+                    position: relative;
+                    text-align: right;
+                    height: 175px;
+                    width: 100%;
+                }
+
+                #gmap_canvas {
+                    width: 100% !important;
+                    height: 175px;
+                }
+
+                .gmap_canvas {
+                    overflow: hidden;
+                    background: none !important;
+                    height: 175px;
+                    width: 100%;
+                }
+            </style>
+        </div>*@
+        <div class="row p-0 m-0" id="footerImg">
+                <div class="blurry-bg">
+                    <div class="row pt-5 pb-5 pl-5">
+                        <div class="col-12 text-left text-white">
+                            <p>
+                                <span class="badge"> <i class="fas fa-map-marker-alt fa-2x" style="color:white"></i></span>
+                                <strong>MHYLES CORPORATION CORPORATE CENTER</strong> <br />
+                                <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6th floor, Ben-Lor Building, 1184 Quezon Avenue, Quezon City</strong>
+                            </p>
+                            <p>
+                                <span class="badge"><i class="fas fa-phone-alt fa-2x" style="color:white"></i></span>
+                                <strong>+639752602261 / +6329176187</strong>
+                            </p>
+                            <p>
+                                <span class="badge"><i class="fas fa-envelope fa-2x" style="color:white"></i></span>
+                                <strong>sales@mhyles.com</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 p-2 card" id="right-footer">
+            <h5 class="text-uppercase text-left whytext pb-3 mt-sm-3 mt-3 mt-md-0 mt-xl-0 mt-lg-0 mhyle-text-style my-font-25 text-white">head office</h5>
+            <div class="row text-left">
+                <div class="col-12">
+                    <fieldset class="scheduler-border-white">
+                        <legend class="scheduler-border text-white"><i class="fas fa-search-location" style="color:white"></i>Find Us</legend>
+                        <div class="row">
+                            <div class="col-12 text-uppercase mb-2 my-font-16" style="color:#292828;"><i class="far fa-building" style="color:white;"></i> &nbsp;mhyles corporation corporate center</div>
+                            <div class="col-12 mb-2 my-font-16" style="color:#292828;"><i class="fas fa-building" style="color:white;"></i> &nbsp;6th floor, Ben-Lor Building, 1184 Quezon Avenue, Quezon City</div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="scheduler-border-white">
+                        <legend class="scheduler-border text-white"><i class="fas fa-phone" style="color:white"></i> Give us a ring</legend>
+                        <div class="col-12 mb-2 my-font-16" style="color:#292828;"><i class="fas fa-phone" style="color:white;"></i> &nbsp;+639752602261 / +6329176187</div>
+                    </fieldset>
+                    <fieldset class="scheduler-border-white">
+                        <legend class="scheduler-border text-white"><i class="fas fa-paper-plane" style="color:white"></i> Mail us</legend>
+                        <div class="col-12 mb-2 my-font-16" style="color:#292828;"><i class="fas fa-envelope" style="color:white;"></i> &nbsp;mhylestravel@gmail.com</div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 text-left">
+            <h5 class="text-uppercase whytext pb-2 mhyle-text-style text-white my-font-25">follow us</h5>
+            <div class="col-12 text-left">
+                <a href="https://www.facebook.com/MhylesTravel/" target="_blank">
+                    <i class="fab fa-facebook-square mhyle-icon my-icon-size" style="color:white;"></i>
+                </a>
+            </div>
+        </div>*@
+               
+                @*<div class="row">
+                    <div class="col-12 text-left">
+                        <pre>
+                        <img src="~/Bg-img/sample-img/te232.png" /> +639752602261 / +6329176187
+
+                     </pre>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-left">
+                        <pre>
+                            <img src="~/Bg-img/sample-img/mes24254.png" /> sales@mhyles.com
+                     </pre>
+                    </div>
+                </div>*@
+           
+            <div class="img-blurry">
+
+            </div>
+        </div>
+        <div class="row p-0 m-0">
+            <div class="container text-center p-0 pl-5 m-0 my-font-16">
+                <p class="text-dark"><strong>© 2020 Mhyles Corporation | All Rights Reserved.</strong></p>
+            </div>
+        </div>
+    </footer>
+
+
+    @Scripts.Render("~/bundles/jquery-3")
+    @Scripts.Render("~/bundles/jquery-1")
+    @Scripts.Render("~/bundles/signalr")
+    <script src="~/signalr/hubs"></script>
+    @Scripts.Render("~/bundles/jquery-ui-2")
+    @Scripts.Render("~/bundles/moment-2")
+    @Scripts.Render("~/bundles/adminnotify")
+    @Scripts.Render("~/bundles/tempusdominus-4")
+    @Scripts.Render("~/bundles/swiper")
+    @Scripts.Render("~/bundles/bootstrap-4")
+    <link href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/themes/blitzer/jquery-ui.css"
+          rel="Stylesheet" type="text/css" />
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v4.0"></script>
+    @Scripts.Render("~/custom/paging")
+    @Scripts.Render("~/bundles/homeScript")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/chat")
+    @Scripts.Render("~/bundles/dateTime")
+    @*<script type="text/javascript">window.onload = date_time('date_time');</script>*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,291 @@
+﻿@model BookingApp.Models._BookingModel
+@using (Html.BeginForm("MultiCityInquire", "Home", FormMethod.Post, new { @id = "multiCityForm"}))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger font-red my-font-14" })
+<div class="row">
+    <div class="col-12 text-left">
+        <div class="form-group">
+            @Html.LabelFor(xx => xx.FullName, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+            <div class="input-group">
+                @Html.EditorFor(xx => xx.FullName, new { htmlAttributes = new { @class = "form-control my-font-14", @placeholder = "Lastname, Firstname Middlename" } })
+            </div>
+            @Html.ValidationMessageFor(xx => xx.FullName, "", new { @class = "text-danger my-font-14" })
+        </div>
+    </div>
+    <div class="col-12 text-left">
+        <div class="form-group">
+            @Html.LabelFor(xx => xx.email, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+            <div class="input-group">
+                @Html.EditorFor(xx => xx.email, new { htmlAttributes = new { @class = "form-control my-font-14", @placeholder = "Enter you email" } })
+            </div>
+            @Html.ValidationMessageFor(xx => xx.email, "", new { @class = "text-danger my-font-14" })
+        </div>
+    </div>
+    <div class="col-12 text-left">
+        <div class="form-group">
+            @Html.LabelFor(xx => xx.contact, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+            <div class="input-group">
+                @Html.EditorFor(xx => xx.contact, new { htmlAttributes = new { @class = "form-control my-font-14", @placeholder = "Enter you phone number" } })
+            </div>
+            @Html.ValidationMessageFor(xx => xx.contact, "", new { @class = "text-danger my-font-14" })
+        </div>
+    </div>
+    <div class="col-12 text-left">
+        <div class="form-group">
+            @Html.LabelFor(xx => xx.From_, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+            <div class="input-group">
+                @Html.EditorFor(xx => xx.From_, new { htmlAttributes = new { @class = "form-control my-font-14", @placeholder = "Enter starting location", @id = "FromId_" } })
+                <div class="input-group-append">
+                    <div class="input-group-text my-icon my-font-14"><i class="fas fa-map-marker-alt"></i></div>
+                </div>
+            </div>
+            @Html.ValidationMessageFor(xx => xx.From_, "", new { @class = "text-danger my-font-14" })
+        </div>
+    </div>
+    <div class="col-12 text-left">
+        <div class="form-group">
+            @Html.LabelFor(xx => xx.To_, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+            <div class="input-group">
+                @Html.EditorFor(xx => xx.To_, new { htmlAttributes = new { @class = "form-control my-font-14", @placeholder = "Enter destination", @id = "ToId_" } })
+                <div class="input-group-append">
+                    <div class="input-group-text my-icon my-font-14"><i class="fas fa-map-marker-alt"></i></div>
+                </div>
+            </div>
+            @Html.ValidationMessageFor(xx => xx.To_, "", new { @class = "text-danger my-font-14" })
+        </div>
+    </div>
+    <div class="col-12 text-left">
+        <div class="form-group">
+            @Html.LabelFor(xx => xx.DpartDate_, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+            <div class="form-group">
+                <div class="input-group date" id="hDatetimepicker_" data-target-input="nearest">
+                    @Html.EditorFor(xx => xx.DpartDate_, new { htmlAttributes = new { @class = "form-control datetimepicker-input my-font-14", @data_target = "#hDatetimepicker_", @id = "dDate_", @placeholder = "Select departure date" } })
+                    <div class="input-group-append" data-target="#hDatetimepicker_" data-toggle="datetimepicker">
+                        <div class="input-group-text my-btn my-font-14"><i class="fas fa-calendar-alt"></i></div>
+                    </div>
+                </div>
+            </div>
+            @Html.ValidationMessageFor(xx => xx.DpartDate_, "", new { @class = "text-danger my-font-14" })
+        </div>
+    </div>
+
+
+    <!--multi city collapse-->
+    <div class="col-12 text-md-right text-lg-right text-xl-right text-sm-left text-left">
+        <span class="btn my-btn my-font-14 btn-multiCollapse my-font-14" data-target="#multiContainer" data-toggle="collapse" style="cursor:pointer">
+            Add Multi Cities <i class='fas fa-angle-double-right multi-icon'></i>
+            <i class='fas fa-angle-double-down _multi-icon'></i>
+        </span>
+    </div>
+    <div class="collapse" id="multiContainer">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-left">
+                <div class="form-group">
+                    @Html.LabelFor(xx => xx.From1_, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+                    <div class="input-group">
+                        @Html.EditorFor(xx => xx.From1_, new { htmlAttributes = new { @class = "form-control my-font-14", @id = "FromId1_", @placeholder = "Enter starting location" } })
+                        <div class="input-group-append">
+                            <div class="input-group-text my-icon my-font-14"><i class="fas fa-map-marker-alt"></i></div>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(xx => xx.From1_, "", new { @class = "text-danger my-font-14" })
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-left">
+                <div class="form-group">
+                    @Html.LabelFor(xx => xx.To1_, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+                    <div class="input-group">
+                        @Html.EditorFor(xx => xx.To1_, new { htmlAttributes = new { @class = "form-control my-font-14", @id = "ToId1_", @placeholder = "Enter destination" } })
+                        <div class="input-group-append">
+                            <div class="input-group-text my-icon my-font-14"><i class="fas fa-map-marker-alt"></i></div>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(xx => xx.To1_, "", new { @class = "text-danger my-font-14", @id = "ToId1_Error" })
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-left">
+                <div class="form-group">
+                    @Html.LabelFor(xx => xx.DpartDate1_, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+                    <div class="input-group date" id="hDatetimepicker1_" data-target-input="nearest">
+                        @Html.EditorFor(xx => xx.DpartDate1_, new { htmlAttributes = new { @class = "form-control datetimepicker-input my-font-14", @data_target = "#hDatetimepicker1_", @id = "dDate1_", @placeholder = "Select departure date" } })
+                        <div class="input-group-append" data-target="#hDatetimepicker1_" data-toggle="datetimepicker">
+                            <div id="dDate1_icon" class="input-group-text btn-disabled my-font-14"><i class="fas fa-calendar-alt"></i></div>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(xx => xx.DpartDate1_, "", new { @class = "text-danger my-font-14" })
+                </div>
+            </div>
+        </div>
+        <hr class="d-md-none d-lg-none d-xl-none my-border" />
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-left">
+                <div class="form-group">
+                    @Html.LabelFor(xx => xx.From2_, htmlAttributes: new { @class = "control-label font-red d-md-none d-lg-none d-xl-none my-font-14" })
+                    <div class="input-group">
+                        @Html.EditorFor(xx => xx.From2_, new { htmlAttributes = new { @class = "form-control my-font-14", @id = "FromId2_", @placeholder = "Enter starting location" } })
+                        <div class="input-group-append">
+                            <div class="input-group-text my-icon my-font-14"><i class="fas fa-map-marker-alt"></i></div>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(xx => xx.From2_, "", new { @class = "text-danger my-font-14" })
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-left">
+                <div class="form-group">
+                    @Html.LabelFor(xx => xx.To2_, htmlAttributes: new { @class = "control-label d-md-none d-lg-none d-xl-none font-red my-font-14" })
+                    <div class="input-group">
+                        @Html.EditorFor(xx => xx.To2_, new { htmlAttributes = new { @class = "form-control my-font-14", @id = "ToId2_", @placeholder = "Enter destination" } })
+                        <div class="input-group-append">
+                            <div class="input-group-text my-icon my-font-14"><i class="fas fa-map-marker-alt"></i></div>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(xx => xx.To2_, "", new { @class = "text-danger my-font-14", @id = "ToId2_Error" })
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-left">
+                <div class="form-group">
+                    @Html.LabelFor(xx => xx.DpartDate2_, htmlAttributes: new { @class = "control-label d-md-none d-lg-none d-xl-none my-font-14 font-red" })
+                    <div class="input-group date" id="hDatetimepicker2_" data-target-input="nearest">
+                        @Html.EditorFor(xx => xx.DpartDate2_, new { htmlAttributes = new { @class = "form-control datetimepicker-input my-font-14", @data_target = "#hDatetimepicker2_", @id = "dDate2_", @placeholder = "Select departure date" } })
+                        <div class="input-group-append" data-target="#hDatetimepicker2_" data-toggle="datetimepicker">
+                            <div id="dDate2_icon" class="input-group-text btn-disabled my-font-14"><i class="fas fa-calendar-alt"></i></div>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(xx => xx.DpartDate2_, "", new { @class = "text-danger my-font-14" })
+                </div>
+            </div>
+        </div>
+        <hr class="d-md-none d-lg-none d-xl-none my-border" />
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-left">
+                <div class="form-group">
+                    @Html.LabelFor(xx => xx.From3_, htmlAttributes: new { @class = "control-label font-red d-md-none d-lg-none d-xl-none my-font-14" })
+                    <div class="input-group">
+                        @Html.EditorFor(xx => xx.From3_, new { htmlAttributes = new { @class = "form-control my-font-14", @id = "FromId3_", @placeholder = "Enter starting location" } })
+                        <div class="input-group-append">
+                            <div class="input-group-text my-icon my-font-14"><i class="fas fa-map-marker-alt"></i></div>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(xx => xx.From3_, "", new { @class = "text-danger my-font-14" })
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-left">
+                <div class="form-group">
+                    @Html.LabelFor(xx => xx.To3_, htmlAttributes: new { @class = "control-label font-red d-md-none d-lg-none d-xl-none my-font-14" })
+                    <div class="input-group">
+                        @Html.EditorFor(xx => xx.To3_, new { htmlAttributes = new { @class = "form-control my-font-14", @id = "ToId3_", @placeholder = "Enter destination" } })
+                        <div class="input-group-append">
+                            <div class="input-group-text my-icon my-font-14"><i class="fas fa-map-marker-alt"></i></div>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(xx => xx.To3_, "", new { @class = "text-danger my-font-14", @id = "ToId3_Error" })
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-left">
+                <div class="form-group">
+                    @Html.LabelFor(xx => xx.DpartDate3_, htmlAttributes: new { @class = "control-label font-red d-md-none d-lg-none d-xl-none my-font-14" })
+                    <div class="input-group date" id="hDatetimepicker3_" data-target-input="nearest">
+                        @Html.EditorFor(xx => xx.DpartDate3_, new { htmlAttributes = new { @class = "form-control datetimepicker-input my-font-14", @data_target = "#hDatetimepicker3_", @id = "dDate3_", @placeholder = "Select departure date" } })
+                        <div class="input-group-append" data-target="#hDatetimepicker3_" data-toggle="datetimepicker">
+                            <div id="dDate3_icon" class="input-group-text btn-disabled my-font-14"><i class="fas fa-calendar-alt"></i></div>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(xx => xx.DpartDate3_, "", new { @class = "text-danger my-font-14" })
+                </div>
+            </div>
+        </div>
+        <hr class="d-md-none d-lg-none d-xl-none my-border" />
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-left">
+                <div class="form-group">
+                    @Html.LabelFor(xx => xx.From4_, htmlAttributes: new { @class = "control-label font-red d-md-none d-lg-none d-xl-none my-font-14" })
+                    <div class="input-group">
+                        @Html.EditorFor(xx => xx.From4_, new { htmlAttributes = new { @class = "form-control my-font-14", @id = "FromId4", @placeholder = "Enter starting location" } })
+                        <div class="input-group-append">
+                            <div class="input-group-text my-icon my-font-14"><i class="fas fa-map-marker-alt"></i></div>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(xx => xx.From4_, "", new { @class = "text-danger my-font-14" })
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-left">
+                <div class="form-group">
+                    @Html.LabelFor(xx => xx.To4_, htmlAttributes: new { @class = "control-label font-red d-md-none d-lg-none d-xl-none my-font-14" })
+                    <div class="input-group">
+                        @Html.EditorFor(xx => xx.To4_, new { htmlAttributes = new { @class = "form-control my-font-14", @id = "ToId4_", @placeholder = "Enter destination" } })
+                        <div class="input-group-append">
+                            <div class="input-group-text my-icon my-font-14"><i class="fas fa-map-marker-alt"></i></div>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(xx => xx.To4_, "", new { @class = "text-danger my-font-14", @id = "ToId4_Error" })
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-left">
+                <div class="form-group">
+                    @Html.LabelFor(xx => xx.DpartDate4_, htmlAttributes: new { @class = "control-label font-red d-md-none d-lg-none d-xl-none my-font-14" })
+                    <div class="input-group date" id="hDatetimepicker4_" data-target-input="nearest">
+                        @Html.EditorFor(xx => xx.DpartDate4_, new { htmlAttributes = new { @class = "form-control datetimepicker-input my-font-14", @data_target = "#hDatetimepicker4_", @id = "dDate4_", @placeholder = "Select departure date" } })
+                        <div class="input-group-append" data-target="#hDatetimepicker4_" data-toggle="datetimepicker">
+                            <div id="dDate4_icon" class="input-group-text btn-disabled my-font-14"><i class="fas fa-calendar-alt"></i></div>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(xx => xx.DpartDate4_, "", new { @class = "text-danger my-font-14" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end of multi city collapse-->
+
+
+    <div class="col-12 text-left">
+        <div class="form-group">
+            @Html.LabelFor(xx => xx.Pssngers_, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+            <div class="input-group">
+                @Html.EditorFor(xx => xx.Pssngers_, new { htmlAttributes = new { @class = "form-control my-font-14", @hidden= "hidden", @id = "Pssnger_Counts" } })
+                <input type="text" class="form-control my-font-14" id="PssngerCounts" disabled="disabled" data-toggle="tooltip" placeholder="0 Passenger(s)" title="Please click the arrow down" data-placement="top" /> 
+                <div class="input-group-append">
+                    <div class="input-group-text my-btn my-font-14" data-target="#homepsngr_" data-toggle="collapse" style="cursor:pointer"><i class="fas fa-angle-down"></i></div>
+                </div>
+            </div>
+            @Html.ValidationMessageFor(xx => xx.Pssngers_, "", new { @class = "text-danger my-font-14", @id = "PssngerCountsError" })
+            <div class="collapse" id="homepsngr_">
+                @RenderPage("~/Views/Home/Passenger03.cshtml")
+            </div>
+        </div>
+    </div>
+    <div class="col-12 text-left">
+        <div class="form-group">
+            @Html.LabelFor(xx => xx.concern, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+            <div class="input-group">
+                @Html.EditorFor(xx => xx.concern, new { htmlAttributes = new { @class = "form-control my-font-14", @placeholder = "Optional", @rows = "6" } })
+            </div>
+            @Html.ValidationMessageFor(xx => xx.concern, "", new { @class = "text-danger my-font-14" })
+        </div>
+    </div>
+    <div class="col-12 text-left">
+        <div class="form-group">
+            @Html.LabelFor(xx => xx.classType_, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+            @Html.DropDownListFor(xx => xx.classType_, new List<SelectListItem>()
+                {
+                    new SelectListItem(){ Text = "Select Class", Value = "0"},
+                    new SelectListItem(){ Text = "Economy", Value = "Economy"},
+                    new SelectListItem(){ Text = "Premium Economy", Value = "Premium Economy"},
+                    new SelectListItem(){ Text = "Business", Value = "Business"},
+                },
+            new { @class = "form-control dd-user my-font-14", @id = "classTypes_" } )
+            @Html.ValidationMessageFor(xx => xx.classType_, "", new { @class = "text-danger my-font-14", @id = "classTypes_Error" })
+            @Html.EditorFor(xx => xx.bookingFiltering_, new { htmlAttributes = new { @class = "form-control my-font-14", @hidden = "hidden", @Value = "Multi City"} })
+        </div>
+    </div>
+    <div class="col-12 text-right">
+        <div class="form-group">
+            <button class="btn my-btn my-font-14" id="btnMultiCityInquire">Inquire Now</button>
+            <button class="btn my-font-14" type="button" id="btnMultiCityLoad" disabled>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Processing...
+            </button>
+        </div>
+    </div>
+</div>
+}

@@ -1,0 +1,123 @@
+﻿@model BookingApp.Models._Booking1
+<div class="booking-form-body">
+    @using (Html.BeginForm("FlightAndHotelInquire", "Home", FormMethod.Post, new { @id = "FlghtHotelForm" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger my-font-14 font-red" })
+        <div class="row">
+            <div class="col-12 text-left">
+                <div class="form-group">
+                    @Html.LabelFor(a => a.FullName, htmlAttributes: new { @class = "control-label my-font-14 font-red" })
+                    <div class="input-group">
+                        @Html.EditorFor(a => a.FullName, new { htmlAttributes = new { @class = "form-control my-font-14", @placeholder = "Lastname, Firstname Middlename" } })
+                    </div>
+                    @Html.ValidationMessageFor(a => a.FullName, "", new { @class = "text-danger my-font-14" })
+                </div>
+            </div>
+            <div class="col-12 text-left">
+                <div class="form-group">
+                    @Html.LabelFor(a => a.email, htmlAttributes: new { @class = "control-label my-font-14 font-red" })
+                    <div class="input-group">
+                        @Html.EditorFor(a => a.email, new { htmlAttributes = new { @class = "form-control my-font-14", @placeholder = "Enter your email" } })
+                    </div>
+                    @Html.ValidationMessageFor(a => a.email, "", new { @class = "text-danger my-font-14" })
+                </div>
+            </div>
+            <div class="col-12 text-left">
+                <div class="form-group">
+                    @Html.LabelFor(a => a.contact, htmlAttributes: new { @class = "control-label my-font-14 font-red" })
+                    <div class="input-group">
+                        @Html.EditorFor(a => a.contact, new { htmlAttributes = new { @class = "form-control my-font-14", @placeholder = "Enter your Phone number" } })
+                    </div>
+                    @Html.ValidationMessageFor(a => a.contact, "", new { @class = "text-danger my-font-14" })
+                </div>
+            </div>
+            <div class="col-12 text-left">
+                <div class="form-group">
+                    @Html.LabelFor(a => a.From1, htmlAttributes: new { @class = "control-label my-font-14 font-red" })
+                    <div class="input-group">
+                        @Html.EditorFor(a => a.From1, new { htmlAttributes = new { @class = "form-control my-font-14", @placeholder = "Enter starting location", @id = "_FromId-" } })
+                        <div class="input-group-append">
+                            <div class="input-group-text my-icon my-font-14"><i class="fas fa-map-marker-alt"></i></div>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(a => a.From1, "", new { @class = "text-danger my-font-14" })
+                </div>
+            </div>
+            <div class="col-12 text-left">
+                <div class="form-group">
+                    @Html.LabelFor(a => a.To1, htmlAttributes: new { @class = "control-label my-font-14 font-red" })
+                    <div class="input-group">
+                        @Html.EditorFor(a => a.To1, new { htmlAttributes = new { @class = "form-control my-font-14", @placeholder = "Enter destination", @id = "_ToId-" } })
+                        <div class="input-group-append">
+                            <div class="input-group-text my-icon my-font-14"><i class="fas fa-map-marker-alt"></i></div>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(a => a.To1, "", new { @class = "text-danger my-font-14" })
+                </div>
+            </div>
+            <div class="col-12 text-left">
+                <div class="form-group">
+                    @Html.LabelFor(a => a.DpartDate1, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+                    <div class="form-group">
+                        <div class="input-group date" id="_hDatetimepicker-" data-target-input="nearest">
+                            @Html.EditorFor(a => a.DpartDate1, new { htmlAttributes = new { @class = "form-control datetimepicker-input my-font-14", @data_target = "#_hDatetimepicker-", @id = "_-dDate", @placeholder = "Select departure date" } })
+                            <div class="input-group-append" data-target="#_hDatetimepicker-" data-toggle="datetimepicker">
+                                <div class="input-group-text my-btn my-font-14"><i class="fas fa-calendar-alt"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(a => a.DpartDate1, "", new { @class = "text-danger my-font-14" })
+                </div>
+            </div>
+            <div class="col-12 text-left">
+                <div class="form-group">
+                    @Html.LabelFor(a => a.RturnDate1, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+                    <div class="input-group date" id="_hDatetimepicker1-" data-target-input="nearest">
+                        @Html.EditorFor(a => a.RturnDate1, new { htmlAttributes = new { @class = "form-control datetimepicker-input datepicker my-font-14", @data_target = "#_hDatetimepicker1-", @id = "_-rDate", @placeholder = "Select return date", @data_toggle = "tooltip", @title = "Please select departure date first", @data_placement = "top" } })
+                        <div class="input-group-append" data-target="#_hDatetimepicker1-" data-toggle="datetimepicker">
+                            <div id="FHRdate" class="input-group-text btn-disabled my-font-14"><i class="fas fa-calendar-alt"></i></div>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(a => a.RturnDate1, "", new { @class = "text-danger my-font-14" })
+                </div>
+            </div>
+            <div class="col-12 text-left">
+                <div class="form-group">
+                    @Html.LabelFor(a => a.Pssngers1, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+                    <div class="input-group">
+                        @Html.EditorFor(a => a.Pssngers1, new { htmlAttributes = new { @class = "form-control my-font-14", @id = "PasSngerCounts", @hidden = "hidden" } })
+                        <input type="text" name="_psSngerCounts_" id="_psSngerCounts" disabled="disabled" class="form-control my-font-14" data-toggle="tooltip" title="Please click the arrow down" data-placement="top" />
+                        <div class="input-group-append">
+                            <div class="input-group-text my-btn my-font-14" data-target="#_homepsngr-" data-toggle="collapse" style="cursor:pointer"><i class="fas fa-angle-down"></i></div>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(a => a.Pssngers1, "", new { @class = "text-danger my-font-14", @id = "fhPCountsError" })
+                </div>
+            </div>
+            <div class="col-12 text-left">
+                <div class="form-group">
+                    @Html.LabelFor(a => a.concern, htmlAttributes: new { @class = "control-label font-red my-font-14" })
+                    <div class="input-group">
+                        @Html.EditorFor(a => a.concern, new { htmlAttributes = new { @class = "form-control my-font-14", @placeholder = "Optional", @rows = "6" } })
+                    </div>
+                    @Html.ValidationMessageFor(a => a.concern, "", new { @class = "text-danger my-font-14 font-red" })
+                    @Html.EditorFor(a => a.bookingFiltering1, new { htmlAttributes = new { @hidden = "hidden", @Value = "Flights And Hotels" } })
+                </div>
+            </div>
+            <div class="col-12 text-right">
+                <div class="form-group">
+                    <button class="btn my-btn my-font-14" type="submit" id="btnInquireFligthHotel">Inquire Now</button>
+                    <button class="btn my-font-14" type="button" id="btnInquireFligthHotelLoad" disabled>
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        Processing...
+                    </button>
+                </div>
+            </div>
+        </div>
+       
+    }
+     <div class="collapse" id="_homepsngr-">
+        @RenderPage("~/Views/Home/Passenger04.cshtml")
+     </div>
+</div>

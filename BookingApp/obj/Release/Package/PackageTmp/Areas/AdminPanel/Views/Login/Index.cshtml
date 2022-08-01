@@ -1,0 +1,363 @@
+﻿@model BookingApp.Areas.AdminPanel.LoginModel.AccountModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="icon" href="~/Bg-img/travel-logo-900.png" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    @Scripts.Render("~/styles/fontawesome-kit")
+    @Styles.Render("~/Content/admindashboard")
+    @Styles.Render("~/Content/adminSites")
+    @Styles.Render("~/styles/datatableb4")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center p-5">
+                    @using (Html.BeginForm("Index", "Login", FormMethod.Post, new { id = "loginForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="design-don">
+                            <div class="sq-div">
+                                <div class="img-login shadow-effect">
+                                    <img src="~/image/new-logo.png" class="img-circle" />
+                                </div>
+                            </div>
+                            <div class="card max-waa shadow-sm">
+
+                            </div>
+                            <div class="card max-w shadow-sm">
+                                <div class="row p-3 row-transform">
+                                    <div class="col-12 m-2">
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="far fa-user" style="color:gray"></i>
+                                                </span>
+                                            </div>
+                                            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", placeholder = "Username" } })
+                                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fas fa-lock" style="color:gray"></i>
+                                                </span>
+                                            </div>
+                                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })
+                                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <span class="text-danger my-font-13 errorView">@ViewBag.Error</span>
+                                    <div class="col-12 text-right">
+                                        <button class="btn btn-md u-btn btn-success pull-right" type="submit" id="loginbtn"><i class="fas fa-user-lock"></i>&nbsp;&nbsp;<span>Login</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card max-wa shadow-sm">
+
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    @if (@ViewBag.Error != null)
+    {
+    <style>
+        #loginbtn {
+            margin-top: -10px;
+        }
+        .max-w {
+            max-width: 340px !important;
+            min-height: 300px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            border-radius: 250px 0 250px 0 !important;
+            z-index: 1 !important;
+            background-color: #D1EDE1;
+            -webkit-animation-name: w; /* Safari 4.0 - 8.0 */
+            -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+            -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+            animation-name: w;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+            @@-webkit-keyframes w {
+                0% {
+                    box-shadow: 12px 0 15px -4px rgba(237, 19, 19, 0.8), 0px 0 0px -4px rgba(237, 19, 19, 0.8);
+                }
+
+                25% {
+                    box-shadow: 12px 0 15px -4px rgba(163, 194, 27, 0.8), 0px 0 0px -4px rgba(163, 194, 27, 0.8);
+                }
+
+                50% {
+                    box-shadow: 12px 0 15px -4px rgba(224, 22, 70, 0.8), 0px 0 0px -4px rgba(224, 22, 70, 0.8);
+                }
+
+                75% {
+                    box-shadow: 12px 0 15px -4px rgba(98, 25, 189, 0.8), 0px 0 0px -4px rgba(98, 25, 189, 0.8);
+                }
+
+                100% {
+                    box-shadow: 12px 0 15px -4px rgba(128, 18, 42, 0.8), 0px 0 0px -4px rgba(128, 18, 42, 0.8);
+                }
+            }
+            @@keyframes w {
+                0% {
+                    box-shadow: 12px 0 15px -4px rgba(237, 19, 19, 0.8), 0px 0 0px -4px rgba(237, 19, 19, 0.8);
+                }
+
+                25% {
+                    box-shadow: 12px 0 15px -4px rgba(163, 194, 27, 0.8), 0px 0 0px -4px rgba(163, 194, 27, 0.8);
+                }
+
+                50% {
+                    box-shadow: 12px 0 15px -4px rgba(224, 22, 70, 0.8), 0px 0 0px -4px rgba(224, 22, 70, 0.8);
+                }
+
+                75% {
+                    box-shadow: 12px 0 15px -4px rgba(98, 25, 189, 0.8), 0px 0 0px -4px rgba(98, 25, 189, 0.8);
+                }
+
+                100% {
+                    box-shadow: 12px 0 15px -4px rgba(128, 18, 42, 0.8), 0px 0 0px -4px rgba(128, 18, 42, 0.8);
+                }
+            }
+
+        .max-wa {
+            width: 330px !important;
+            height: 295px !important;
+            margin-left: 50px !important;
+            margin-top: -300px;
+            z-index: 0 !important;
+            border-radius: 0 250px 0 250px !important;
+            position: absolute;
+            -ms-transform: rotate(120deg); /* IE 9 */
+            -webkit-transform: rotate(120deg); /* Safari prior 9.0 */
+            transform: rotate(120deg); /* Standard syntax */
+            background-color: #7BC5AE;
+            -webkit-animation-name: wa; /* Safari 4.0 - 8.0 */
+            -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+            -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+            animation-name: wa;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+        @@-webkit-keyframes wa {
+            0% {
+                box-shadow: 12px 0 15px -4px rgba(222, 11, 11, 0.8), 0px 0 0px -4px rgba(222, 11, 11, 0.8);
+            }
+
+            25% {
+                box-shadow: 12px 0 15px -4px rgba(176, 28, 28, 0.8), 0px 0 0px -4px rgba(176, 28, 28, 0.8);
+            }
+
+            50% {
+                box-shadow: 12px 0 15px -4px rgba(179, 29, 9, 0.8), 0px 0 0px -4px rgba(179, 29, 9, 0.8);
+            }
+
+            75% {
+                box-shadow: 12px 0 15px -4px rgba(209, 59, 101, 0.8), 0px 0 0px -4px rgba(209, 59, 101, 0.8);
+            }
+
+            100% {
+                box-shadow: 12px 0 15px -4px rgba(245, 5, 5, 0.8), 0px 0 0px -4px rgba(245, 5, 5, 0.8);
+            }
+        }
+
+        @@keyframes wa {
+            0% {
+                box-shadow: 12px 0 15px -4px rgba(222, 11, 11, 0.8), 0px 0 0px -4px rgba(222, 11, 11, 0.8);
+            }
+
+            25% {
+                box-shadow: 12px 0 15px -4px rgba(176, 28, 28, 0.8), 0px 0 0px -4px rgba(176, 28, 28, 0.8);
+            }
+
+            50% {
+                box-shadow: 12px 0 15px -4px rgba(179, 29, 9, 0.8), 0px 0 0px -4px rgba(179, 29, 9, 0.8);
+            }
+
+            75% {
+                box-shadow: 12px 0 15px -4px rgba(209, 59, 101, 0.8), 0px 0 0px -4px rgba(209, 59, 101, 0.8);
+            }
+
+            100% {
+                box-shadow: 12px 0 15px -4px rgba(245, 5, 5, 0.8), 0px 0 0px -4px rgba(245, 5, 5, 0.8);
+            }
+        }
+
+        .max-waa {
+            width: 330px !important;
+            height: 285px !important;
+            margin-left: 78px !important;
+            border-radius: 250px 0 250px 0 !important;
+            z-index: 0 !important;
+            position: absolute;
+            -ms-transform: rotate(120deg); /* IE 9 */
+            -webkit-transform: rotate(120deg); /* Safari prior 9.0 */
+            transform: rotate(50deg); /* Standard syntax */
+            background-color: #028C6A;
+            -webkit-animation-name: waa; /* Safari 4.0 - 8.0 */
+            -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+            -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+            animation-name: waa;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+
+        @@-webkit-keyframes waa {
+            0% {
+                box-shadow: 12px 0 15px -4px rgba(222, 11, 11, 0.8), 0px 0 0px -4px rgba(222, 11, 11, 0.8);
+            }
+
+            25% {
+                box-shadow: 12px 0 15px -4px rgba(224, 22, 70, 0.8), 0px 0 0px -4px rgba(224, 22, 70, 0.8);
+            }
+
+            50% {
+                box-shadow: 12px 0 15px -4px rgba(179, 29, 9, 0.8), 0px 0 0px -4px rgba(179, 29, 9, 0.8);
+            }
+
+            75% {
+                box-shadow: 12px 0 15px -4px rgba(209, 59, 101, 0.8), 0px 0 0px -4px rgba(209, 59, 101, 0.8);
+            }
+
+            100% {
+                box-shadow: 12px 0 15px -4px rgba(224, 22, 70, 0.8), 0px 0 0px -4px rgba(224, 22, 70, 0.8);
+            }
+        }
+
+        @@keyframes waa {
+            0% {
+                box-shadow: 12px 0 15px -4px rgba(222, 11, 11, 0.8), 0px 0 0px -4px rgba(222, 11, 11, 0.8);
+            }
+
+            25% {
+                box-shadow: 12px 0 15px -4px rgba(224, 22, 70, 0.8), 0px 0 0px -4px rgba(224, 22, 70, 0.8);
+            }
+
+            50% {
+                box-shadow: 12px 0 15px -4px rgba(179, 29, 9, 0.8), 0px 0 0px -4px rgba(179, 29, 9, 0.8);
+            }
+
+            75% {
+                box-shadow: 12px 0 15px -4px rgba(209, 59, 101, 0.8), 0px 0 0px -4px rgba(209, 59, 101, 0.8);
+            }
+
+            100% {
+                box-shadow: 12px 0 15px -4px rgba(224, 22, 70, 0.8), 0px 0 0px -4px rgba(224, 22, 70, 0.8);
+            }
+        }
+
+        .errorView {
+            -webkit-animation-name: waaa; /* Safari 4.0 - 8.0 */
+            -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+            -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+            animation-name: waaa;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+
+        @@-webkit-keyframes waaa {
+            0% {
+                color: rgba(222, 11, 11, 0.8);
+                text-shadow: 2px 2px 4px rgba(222, 11, 11, 0.4);
+            }
+
+            25% {
+                color: rgba(224, 22, 70, 0.8);
+                text-shadow: 2px 2px 4px rgba(224, 22, 70, 0.4);
+            }
+
+            50% {
+                color: rgba(179, 29, 9, 0.8);
+                text-shadow: 2px 2px 4px rgba(179, 29, 9, 0.4);
+            }
+
+            75% {
+                color: rgba(209, 59, 101, 0.8);
+                text-shadow: 2px 2px 4px rgba(209, 59, 101, 0.4);
+            }
+
+            100% {
+                color: rgba(224, 22, 70, 0.8);
+                text-shadow: 2px 2px 4px rgba(224, 22, 70, 0.4);
+            }
+        }
+
+        @@keyframes waaa {
+            0% {
+                color: rgba(222, 11, 11, 0.8);
+                text-shadow: 2px 2px 4px rgba(222, 11, 11, 0.4);
+            }
+
+            25% {
+                color: rgba(224, 22, 70, 0.8);
+                text-shadow: 2px 2px 4px rgba(224, 22, 70, 0.4);
+            }
+
+            50% {
+                color: rgba(179, 29, 9, 0.8);
+                text-shadow: 2px 2px 4px rgba(179, 29, 9, 0.4);
+            }
+
+            75% {
+                color: rgba(209, 59, 101, 0.8);
+                text-shadow: 2px 2px 4px rgba(209, 59, 101, 0.4);
+            }
+
+            100% {
+                color: rgba(224, 22, 70, 0.8);
+                text-shadow: 2px 2px 4px rgba(224, 22, 70, 0.4);
+            }
+        }
+    </style>
+    }
+
+    @Scripts.Render("~/bundles/adminjquery")
+    @Scripts.Render("~/bundles/adminpopper")
+    @Scripts.Render("~/bundles/adminmaterial")
+    @Scripts.Render("~/bundles/adminscrollbar")
+    @Scripts.Render("~/bundles/adminmoment")
+    @Scripts.Render("~/bundles/adminsweetalert")
+    @Scripts.Render("~/bundles/adminvalidate")
+    @Scripts.Render("~/bundles/adminwizard")
+    @Scripts.Render("~/bundlles/adminselectpicker")
+    @Scripts.Render("~/bundles/admindatetimepicker")
+    @*@Scripts.Render("~/bundles/admindataTable")*@
+    @Scripts.Render("~/bundles/datatable")
+    @Scripts.Render("~/bundles/datatablebjs4")
+    @Scripts.Render("~/bundles/admintagsinput")
+    @Scripts.Render("~/bundles/adminjasnyBootstrap")
+    @Scripts.Render("~/bundles/admincalendar")
+    @Scripts.Render("~/bundles/adminjvectormap")
+    @Scripts.Render("~/bundles/adminnouislider")
+    @Scripts.Render("~/bundles/admincore")
+    @Scripts.Render("~/bundles/adminarrive")
+    @Scripts.Render("~/bundles/adminbutton")
+    @Scripts.Render("~/bundles/adminchart")
+    @Scripts.Render("~/bundles/adminnotify")
+    @Scripts.Render("~/bundles/adminmaterialdashboard")
+    @Scripts.Render("~/bundles/adminjavascript")
+    @Scripts.Render("~/bundles/adminsharre")
+    @Scripts.Render("~/bundles/admincustomSharre")
+    @Scripts.Render("~/login/script")
+    @Scripts.Render("~/bundles/jqueryval")
+</body>
+</html>

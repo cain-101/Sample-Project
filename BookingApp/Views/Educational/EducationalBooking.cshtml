@@ -1,0 +1,99 @@
+﻿
+@model BookingApp.Models.Education
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger  my-font-13" })
+<div class="row">
+    <div class="col-12">
+        @Html.LabelFor(ee => ee.fname, htmlAttributes: new { @class = "control-label label-color my-font-13" })
+        <div class="input-group">
+            @Html.EditorFor(ee => ee.fname, new { htmlAttributes = new { @class = "form-control  my-font-13", @placeholder = "Enter Firstname" } })
+        </div>
+        @Html.ValidationMessageFor(ee => ee.fname, "", new { @class = "text-danger  my-font-13" })
+    </div>
+    <div class="col-12">
+        @Html.LabelFor(ee => ee.lname, htmlAttributes: new { @class = "control-label label-color my-font-13" })
+        <div class="input-group">
+            @Html.EditorFor(ee => ee.lname, new { htmlAttributes = new { @class = "form-control  my-font-13", @placeholder = "Enter Lastname" } })
+        </div>
+        @Html.ValidationMessageFor(ee => ee.lname, "", new { @class = "text-danger  my-font-13" })
+    </div>
+    <div class="col-12">
+        @Html.LabelFor(ee => ee.mname, htmlAttributes: new { @class = "control-label label-color my-font-13" })
+        <div class="input-group">
+            @Html.EditorFor(ee => ee.mname, new { htmlAttributes = new { @class = "form-control  my-font-13", @placeholder = "Enter Middlename" } })
+        </div>
+        @Html.ValidationMessageFor(ee => ee.mname, "", new { @class = "text-danger  my-font-13" })
+    </div>
+    <div class="col-12">
+        @Html.LabelFor(ee => ee.position, htmlAttributes: new { @class = "control-label label-color my-font-13" })
+        <div class="input-group">
+            @Html.EditorFor(ee => ee.position, new { htmlAttributes = new { @class = "form-control  my-font-13", @placeholder = "Enter Position" } })
+        </div>
+        @Html.ValidationMessageFor(ee => ee.position, "", new { @class = "text-danger  my-font-13" })
+    </div>
+    <div class="col-12">
+        @Html.LabelFor(ee => ee.school_organization, htmlAttributes: new { @class = "control-label label-color my-font-13" })
+        <div class="input-group">
+            @Html.EditorFor(ee => ee.school_organization, new { htmlAttributes = new { @class = "form-control  my-font-13", @placeholder = "Enter School o Organization" } })
+        </div>
+        @Html.ValidationMessageFor(ee => ee.school_organization, "", new { @class = "text-danger  my-font-13" })
+    </div>
+    <div class="col-12">
+        @Html.LabelFor(ee => ee.email, htmlAttributes: new { @class = "control-label label-color my-font-13" })
+        <div class="input-group">
+            @Html.EditorFor(ee => ee.email, new { htmlAttributes = new { @class = "form-control  my-font-13", @placeholder = "Enter email" } })
+        </div>
+        @Html.ValidationMessageFor(ee => ee.email, "", new { @class = "text-danger  my-font-13" })
+    </div>
+    <div class="col-12">
+        @Html.LabelFor(ee => ee.phone, htmlAttributes: new { @class = "control-label label-color my-font-13" })
+        <div class="input-group">
+            @Html.EditorFor(ee => ee.phone, new { htmlAttributes = new { @class = "form-control  my-font-13", @placeholder = "Enter contact number" } })
+        </div>
+        @Html.ValidationMessageFor(ee => ee.phone, "", new { @class = "text-danger  my-font-13" })
+    </div>
+    <div class="col-12">
+        @Html.LabelFor(ee => ee.numberOfstudents, htmlAttributes: new { @class = "control-label label-color my-font-13" })
+        <div class="input-group">
+            @Html.EditorFor(ee => ee.numberOfstudents, new { htmlAttributes = new { @class = "form-control  my-font-13", @placeholder = "Enter student counts", @id = "studentsCount" } })
+            <div class="input-group-append">
+                <div class="input-group-text my-icon my-font-13"><i class="fas fa-user-graduate"></i></div>
+            </div>
+        </div>
+        @Html.ValidationMessageFor(ee => ee.numberOfstudents, "", new { @class = "text-danger  my-font-13", @id = "studentErr" })
+    </div>
+    <div class="col-12">
+        @Html.LabelFor(ee => ee.numberOfteachers, htmlAttributes: new { @class = "control-label label-color my-font-13" })
+        <div class="input-group">
+            @Html.EditorFor(ee => ee.numberOfteachers, new { htmlAttributes = new { @class = "form-control  my-font-13", @placeholder = "Enter teacher counts", @id = "teacherCount" } })
+            <div class="input-group-append">
+                <div class="input-group-text my-icon my-font-13"><i class="fas fa-chalkboard-teacher"></i></div>
+            </div>
+        </div>
+        @Html.ValidationMessageFor(ee => ee.numberOfteachers, "", new { @class = "text-danger  my-font-13", @id = "teacherErr" })
+    </div>
+    <div class="col-12">
+        @Html.LabelFor(ee => ee.departDate, htmlAttributes: new { @class = "control-label label-color my-font-13" })
+        <div class="input-group date" id="EdudprtDate" data-target-input="nearest">
+            @Html.EditorFor(ee => ee.departDate, new { htmlAttributes = new { @class = "form-control  my-font-13", @id = "EduDAte", @placeholder = "Enter teacher counts" } })
+            <div class="input-group-append" data-target="#EdudprtDate" data-toggle="datetimepicker">
+                <div class="input-group-text my-btn my-font-13"><i class="fas fa-calendar-alt"></i></div>
+            </div>
+        </div>
+        @Html.ValidationMessageFor(ee => ee.departDate, "", new { @class = "text-danger  my-font-13" })
+    </div>
+</div>
+    <div class="row mt-2">
+        <div class="col-12">
+            <div class="input-group">
+                <button class="btn my-btn my-font-13 text-capitalize">Inquire now</button>
+            </div>
+        </div>
+    </div>
+}
+
+
+

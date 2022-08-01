@@ -1,0 +1,106 @@
+﻿@*@model PagedList.IPagedList<BookingApp.Models.InternationalDisplay>
+    @using PagedList.Mvc;*@
+<header>
+    <div id="mydemo" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+            <li data-target="#mydemo" data-slide-to="0" class="active"></li>
+            <li data-target="#mydemo" data-slide-to="1"></li>
+        </ul>
+
+        <!-- The slideshow -->
+        <div class="carousel-inner my-inner-carousel">
+            <div class="carousel-item active">
+                <img src="~/Bg-img/tour-package/bhutan/bhutan.jpg" class="img-fluid">
+                @*<img  src="~/Bg-img/tour-package/tokyo/christmas-in-tokyo.jpg" class="img-fluid" />*@
+                @*<div class="carousel-caption my-captions">
+                        <h3>Say something</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>*@
+            </div>
+            <div class="carousel-item">
+                <img src="~/Bg-img/tour-package/brazil/tropical brazil.jpg" class="img-fluid">
+                @*<div class="carousel-caption my-captions">
+                        <h3>Say something</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>*@
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#mydemo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#mydemo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+</header>
+
+<div class="container-fluid text-center bg-white mt-1" id="idivpage">
+    <div class="shadow-effect user-div01 mb-2 mt-0 pb-2 large-padding">
+        <h2 class="my-font-25 bg-white mb-0 font-red p-md-4 p-sm-3 p-2 p-lg-4 p-xl-4 text-uppercase text-center" style="border-radius:5px 5px 0 0">Educational</h2>
+        <p class="font-orange my-font-16 mb-5 pb-3">List of our Educational tour packages</p>
+        <div class="row mt-3">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text btn-default">Show</span>
+                    </div>
+                    <select class="pagesize" onchange="EDisplay()" id="Edrpdwn">
+                        <option selected="selected" value="12">12</option>
+                        <option value="24">24</option>
+                        <option value="36">36</option>
+                        <option value="48">48</option>
+                        <option value="60">60</option>
+                    </select>
+                    <div class="input-group-append">
+                        <span class="input-group-text btn-default">entries</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Search:</span>
+                    </div>
+                    <input type="text" id="ESearch" class="form-control" />
+                </div>
+            </div>
+        </div>
+        <hr class="my-border mt-1 mb-sm-1 mb-1 mb-lg-2 mb-xl-2 mb-md-2" />
+        <div class="p-2">
+            <div class="row p-xl-5 p-lg-5 p-md-5 p-sm-2" id="pageECallback">
+
+                @foreach (var item in ViewBag.EDp)
+                {
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                        <div class="card my-card">
+                            <div class="my-header-card">
+                                <a href="@Url.Action("TourPackageD", "International",new { @id = item.p_id})">
+                                    <img src="~/DynamicFiles/@item.img" class="hover-animate-img hover-animate-img-2 card card-class" />
+                                </a>
+                            </div>
+                            <div class="my-card-body card">
+                                <div class="my-card-caption">
+                                    <h3 class="my-font-18">@item.p_name</h3>
+                                    <p class="p-0 m-0 my-font-16">
+                                        Price:  @string.Format("{0:C}", Convert.ToDecimal(@item.p_price))
+                                    </p>
+                                    <p class="p-0 m-0 my-font-16">
+                                        Bedroom: @item.bedtype
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <input type="hidden" value="@ViewBag.ECounts" id="ecounts" />
+            <div class="epages">
+
+            </div>
+        </div>
+    </div>
+</div>
+
